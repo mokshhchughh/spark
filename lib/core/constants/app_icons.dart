@@ -13,6 +13,10 @@ class AppIcons {
   /// assets/icons/ConfettiMinimalisticOutline.png
   static const String iconsConfettiMinimalisticOutline = "assets/icons/ConfettiMinimalisticOutline.png";
 
+  /// Assets for iconsEvent
+  /// assets/icons/event.jpg
+  static const String iconsEvent = "assets/icons/event.jpg";
+
   /// Assets for iconsHome
   /// assets/icons/home.png
   static const String iconsHome = "assets/icons/home.png";
@@ -29,6 +33,18 @@ class AppIcons {
   /// assets/icons/logout2.png
   static const String iconsLogout2 = "assets/icons/logout2.png";
 
+  /// Assets for iconsMapPoint
+  /// assets/icons/MapPoint.png
+  static const String iconsMapPoint = "assets/icons/MapPoint.png";
+
+  /// Assets for iconsMinimalisticMagnifer
+  /// assets/icons/MinimalisticMagnifer.png
+  static const String iconsMinimalisticMagnifer = "assets/icons/MinimalisticMagnifer.png";
+
+  /// Assets for iconsNormal
+  /// assets/icons/normal.jpg
+  static const String iconsNormal = "assets/icons/normal.jpg";
+
   /// Assets for iconsPhoneRounded
   /// assets/icons/phone_rounded.png
   static const String iconsPhoneRounded = "assets/icons/phone_rounded.png";
@@ -44,6 +60,10 @@ class AppIcons {
   /// Assets for iconsTrash
   /// assets/icons/trash.png
   static const String iconsTrash = "assets/icons/trash.png";
+
+  /// Assets for iconsTrophySvgrepoCom
+  /// assets/icons/trophy-svgrepo-com.png
+  static const String iconsTrophySvgrepoCom = "assets/icons/trophy-svgrepo-com.png";
 
   /// Assets for iconsTuning
   /// assets/icons/Tuning.png

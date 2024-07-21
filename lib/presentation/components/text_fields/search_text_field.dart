@@ -3,7 +3,7 @@ part of 'text_fields_imports.dart';
 class SearchTextField extends StatelessWidget {
   const SearchTextField(
       {super.key,
-      required this.controller,
+      this.controller,
       this.hintText,
       this.onTap,
       this.onTapOutSide,
@@ -19,7 +19,7 @@ class SearchTextField extends StatelessWidget {
       this.onEditingComplete,
       this.onFieldSubmitted});
 
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String? hintText;
   final Function()? onTap;
   final Function(PointerDownEvent)? onTapOutSide;
@@ -51,7 +51,7 @@ class SearchTextField extends StatelessWidget {
       decoration: InputDecoration(
         errorText: errorText,
         hintMaxLines: maxLines,
-        hintText: 'Search',
+        hintText: hintText,
         contentPadding: EdgeInsets.all(contentPadding),
         hintStyle: const TextStyle(color: Color(0xffc0c0c9)),
         fillColor: fillColor ?? AppColors.grey100,
@@ -65,7 +65,7 @@ class SearchTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
         ),
         prefixIcon: Image.asset(
-          AppIcons.iconsSearch,
+          AppIcons.iconsMinimalisticMagnifer,
           scale: 2.4,
         ),
         suffixIcon: suffixIcon,

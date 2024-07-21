@@ -9,7 +9,8 @@ class LabelSmall extends StatelessWidget {
       this.overflow,
       this.textAlign = TextAlign.start,
       this.decoration,
-      this.fontSize});
+      this.fontSize,
+      this.maxLines});
 
   final String title;
   final Color? color;
@@ -18,11 +19,13 @@ class LabelSmall extends StatelessWidget {
   final TextAlign textAlign;
   final TextDecoration? decoration;
   final double? fontSize;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
+      maxLines: maxLines,
       textAlign: textAlign,
       style: TextStyle(
         fontSize: fontSize ?? Theme.of(context).textTheme.labelSmall!.fontSize,

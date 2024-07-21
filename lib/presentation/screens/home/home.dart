@@ -9,8 +9,114 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int page = 0;
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      extendBody: true,
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+        child: Column(
+          children: [
+            const SearchTextField(
+              hintText: 'Bangalore, India',
+            ).pSymmetric(h: 16),
+            AppSizes.verticalSpace,
+            VxSwiper(
+              height: 250,
+              enlargeCenterPage: true,
+              enableInfiniteScroll: false,
+              onPageChanged: (index) {
+                setState(() {
+                  page = index;
+                });
+              },
+              items: [
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: AppColors.goldGradient,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        offset: const Offset(0, 4),
+                        blurRadius: 20.0,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    gradient: AppColors.silverGradient,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        offset: const Offset(0, 4),
+                        blurRadius: 20.0,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    gradient: AppColors.yellowGradient,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        offset: const Offset(0, 4),
+                        blurRadius: 20.0,
+                        spreadRadius: 0,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            AppSizes.gap12Space,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ...List.generate(3, (index) {
+                  return Container(
+                    height: 8,
+                    margin: const EdgeInsets.symmetric(horizontal: 2),
+                    width: 8,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: page == index
+                            ? AppColors.primary
+                            : AppColors.grey200),
+                  );
+                })
+              ],
+            ),
+            AppSizes.verticalSpace,
+            Expanded(
+              child: ListView.builder(
+                itemCount: 7,
+                shrinkWrap: true,
+                itemBuilder: (context, index) {
+                  return const ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage(AppIcons.iconsNormal),
+                    ),
+                    title: TitleMedium(title: 'User Full Name'),
+                    subtitle: TitleSmall(
+                      title: 'Designation',
+                      color: AppColors.alphaBlack50,
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
