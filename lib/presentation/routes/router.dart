@@ -1,0 +1,45 @@
+part of 'router_imports.dart';
+
+@AutoRouterConfig(replaceInRouteName: "Route")
+class AppRouter extends $AppRouter {
+  @override
+  RouteType get defaultRouteType => const RouteType.custom();
+
+  @override
+  List<CustomRoute> get routes => [
+        CustomRoute(
+          page: SplashRoute.page,
+          path: "/",
+          initial: true,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: AuthRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: OtpVerificationRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+        ),
+        CustomRoute(
+          page: DashboardRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: CommunityRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: ProfileRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: ProfileRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: EventsRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+      ];
+}

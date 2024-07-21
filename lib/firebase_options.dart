@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'career-growth-37c34.appspot.com',
     measurementId: 'G-5B3HDHDPEW',
   );
+
 }
