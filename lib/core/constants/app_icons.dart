@@ -5,6 +5,14 @@ class AppIcons {
   /// assets/icons/chat.png
   static const String iconsChat = "assets/icons/chat.png";
 
+  /// Assets for iconsConfettiMinimalistic
+  /// assets/icons/ConfettiMinimalistic.png
+  static const String iconsConfettiMinimalistic = "assets/icons/ConfettiMinimalistic.png";
+
+  /// Assets for iconsConfettiMinimalisticOutline
+  /// assets/icons/ConfettiMinimalisticOutline.png
+  static const String iconsConfettiMinimalisticOutline = "assets/icons/ConfettiMinimalisticOutline.png";
+
   /// Assets for iconsHome
   /// assets/icons/home.png
   static const String iconsHome = "assets/icons/home.png";
@@ -37,6 +45,10 @@ class AppIcons {
   /// assets/icons/trash.png
   static const String iconsTrash = "assets/icons/trash.png";
 
+  /// Assets for iconsTuning
+  /// assets/icons/Tuning.png
+  static const String iconsTuning = "assets/icons/Tuning.png";
+
   /// Assets for iconsUser
   /// assets/icons/user.png
   static const String iconsUser = "assets/icons/user.png";
@@ -48,5 +60,13 @@ class AppIcons {
   /// Assets for iconsUserRoundedOutline
   /// assets/icons/user_rounded_outline.png
   static const String iconsUserRoundedOutline = "assets/icons/user_rounded_outline.png";
+
+  /// Assets for iconsUsersGroupTwoRounded
+  /// assets/icons/UsersGroupTwoRounded.png
+  static const String iconsUsersGroupTwoRounded = "assets/icons/UsersGroupTwoRounded.png";
+
+  /// Assets for iconsUsersGroupTwoRoundedOutline
+  /// assets/icons/UsersGroupTwoRoundedOutline.png
+  static const String iconsUsersGroupTwoRoundedOutline = "assets/icons/UsersGroupTwoRoundedOutline.png";
 }
 

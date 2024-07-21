@@ -10,6 +10,8 @@ class PrimaryButton extends StatelessWidget {
     this.color,
     this.titleColor,
     this.icon,
+    this.borderRadius,
+    this.padding,
   });
 
   final String title;
@@ -19,18 +21,21 @@ class PrimaryButton extends StatelessWidget {
   final Color? color;
   final Color? titleColor;
   final Widget? icon;
+  final double? borderRadius;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
+        padding: padding,
         backgroundColor: color ?? AppColors.primary,
         minimumSize:
             Size(width ?? MediaQuery.sizeOf(context).width, height ?? 44.h),
         shape: RoundedRectangleBorder(
           side: const BorderSide(color: AppColors.primary),
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
         ),
       ),
       icon: icon,

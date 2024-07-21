@@ -19,14 +19,13 @@ class _DashboardState extends State<Dashboard> {
         children: const [
           Home(),
           Community(),
+          Events(),
           Profile(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: currentIndex == 0 ? AppColors.black : AppColors.white,
         currentIndex: currentIndex,
-        selectedItemColor:
-            currentIndex == 0 ? AppColors.white : AppColors.black,
+        selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.primary50,
         showSelectedLabels: true,
         type: BottomNavigationBarType.fixed,
@@ -40,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
         ),
         selectedLabelStyle: TextStyle(
           fontSize: Theme.of(context).textTheme.labelSmall!.fontSize,
-          color: Theme.of(context).textTheme.labelSmall!.color,
+          color: AppColors.primary,
           fontWeight: Theme.of(context).textTheme.labelSmall!.fontWeight,
           overflow: Theme.of(context).textTheme.labelSmall!.overflow,
           decoration: Theme.of(context).textTheme.labelSmall!.decoration,
@@ -54,29 +53,44 @@ class _DashboardState extends State<Dashboard> {
                   : AppIcons.iconsHomeOutline,
               height: 24.h,
               width: 24.w,
-              color: currentIndex == 0 ? AppColors.white : AppColors.primary50,
+              color:
+                  currentIndex == 0 ? AppColors.primary : AppColors.primary50,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Community',
             icon: Image.asset(
-              currentIndex == 3
-                  ? AppIcons.iconsHome
-                  : AppIcons.iconsHomeOutline,
+              currentIndex == 1
+                  ? AppIcons.iconsUsersGroupTwoRounded
+                  : AppIcons.iconsUsersGroupTwoRoundedOutline,
               height: 24.h,
               width: 24.w,
-              color: currentIndex == 3 ? AppColors.black : AppColors.primary50,
+              color:
+                  currentIndex == 1 ? AppColors.primary : AppColors.primary50,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: 'Events',
+            icon: Image.asset(
+              currentIndex == 2
+                  ? AppIcons.iconsConfettiMinimalistic
+                  : AppIcons.iconsConfettiMinimalisticOutline,
+              height: 24.h,
+              width: 24.w,
+              color:
+                  currentIndex == 2 ? AppColors.primary : AppColors.primary50,
             ),
           ),
           BottomNavigationBarItem(
             label: 'Profile',
             icon: Image.asset(
-              currentIndex == 4
+              currentIndex == 3
                   ? AppIcons.iconsUser
                   : AppIcons.iconsUserRoundedOutline,
               height: 24.h,
               width: 24.w,
-              color: currentIndex == 4 ? AppColors.black : AppColors.primary50,
+              color:
+                  currentIndex == 3 ? AppColors.primary : AppColors.primary50,
             ),
           ),
         ],

@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:career_growth/presentation/screens/community/community_imports.dart';
+import 'package:career_growth/presentation/screens/events/events_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

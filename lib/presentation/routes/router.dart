@@ -26,6 +26,14 @@ class AppRouter extends $AppRouter {
           transitionsBuilder: TransitionsBuilders.slideLeft,
         ),
         CustomRoute(
+          page: UserDetailsRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+        ),
+        CustomRoute(
+          page: ChooseInterestsRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeft,
+        ),
+        CustomRoute(
           page: DashboardRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'core/constants/app_colors.dart';
 import 'core/constants/app_constants.dart';
 import 'presentation/routes/router_imports.dart';
 
@@ -27,6 +28,10 @@ class MyApp extends StatelessWidget {
           title: AppConstants.appName,
           routerConfig: _appRouter.config(),
           theme: ThemeData(
+            scaffoldBackgroundColor: AppColors.white,
+            appBarTheme: const AppBarTheme(
+              backgroundColor: AppColors.white,
+            ),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
             fontFamily: GoogleFonts.poppins().fontFamily,

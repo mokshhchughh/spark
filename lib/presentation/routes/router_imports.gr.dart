@@ -12,17 +12,17 @@ import 'package:auto_route/auto_route.dart' as _i10;
 import 'package:career_growth/presentation/screens/auth/auth_imports.dart'
     as _i1;
 import 'package:career_growth/presentation/screens/community/community_imports.dart'
-    as _i2;
-import 'package:career_growth/presentation/screens/dashboard/dashboard_imports.dart'
     as _i3;
-import 'package:career_growth/presentation/screens/events/events_imports.dart'
+import 'package:career_growth/presentation/screens/dashboard/dashboard_imports.dart'
     as _i4;
-import 'package:career_growth/presentation/screens/home/home_imports.dart'
+import 'package:career_growth/presentation/screens/events/events_imports.dart'
     as _i5;
-import 'package:career_growth/presentation/screens/onboard/onboard_imports.dart'
+import 'package:career_growth/presentation/screens/home/home_imports.dart'
     as _i6;
-import 'package:career_growth/presentation/screens/otp_verification/otp_verification_imports.dart'
+import 'package:career_growth/presentation/screens/onboard/onboard_imports.dart'
     as _i7;
+import 'package:career_growth/presentation/screens/otp_verification/otp_verification_imports.dart'
+    as _i2;
 import 'package:career_growth/presentation/screens/profile/profile_imports.dart'
     as _i8;
 import 'package:career_growth/presentation/screens/splash/splash_imports.dart'
@@ -40,41 +40,47 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: const _i1.Auth(),
       );
     },
+    ChooseInterestsRoute.name: (routeData) {
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.ChooseInterests(),
+      );
+    },
     CommunityRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.Community(),
+        child: const _i3.Community(),
       );
     },
     DashboardRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.Dashboard(),
+        child: const _i4.Dashboard(),
       );
     },
     EventsRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.Events(),
+        child: const _i5.Events(),
       );
     },
     HomeRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.Home(),
+        child: const _i6.Home(),
       );
     },
     OnboardRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.Onboard(),
+        child: const _i7.Onboard(),
       );
     },
     OtpVerificationRoute.name: (routeData) {
       final args = routeData.argsAs<OtpVerificationRouteArgs>();
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i7.OtpVerification(
+        child: _i2.OtpVerification(
           key: args.key,
           verificationId: args.verificationId,
         ),
@@ -90,6 +96,12 @@ abstract class $AppRouter extends _i10.RootStackRouter {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i9.Splash(),
+      );
+    },
+    UserDetailsRoute.name: (routeData) {
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.UserDetails(),
       );
     },
   };
@@ -110,7 +122,21 @@ class AuthRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.Community]
+/// [_i2.ChooseInterests]
+class ChooseInterestsRoute extends _i10.PageRouteInfo<void> {
+  const ChooseInterestsRoute({List<_i10.PageRouteInfo>? children})
+      : super(
+          ChooseInterestsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChooseInterestsRoute';
+
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.Community]
 class CommunityRoute extends _i10.PageRouteInfo<void> {
   const CommunityRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -124,7 +150,7 @@ class CommunityRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.Dashboard]
+/// [_i4.Dashboard]
 class DashboardRoute extends _i10.PageRouteInfo<void> {
   const DashboardRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -138,7 +164,7 @@ class DashboardRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.Events]
+/// [_i5.Events]
 class EventsRoute extends _i10.PageRouteInfo<void> {
   const EventsRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -152,7 +178,7 @@ class EventsRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.Home]
+/// [_i6.Home]
 class HomeRoute extends _i10.PageRouteInfo<void> {
   const HomeRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -166,7 +192,7 @@ class HomeRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.Onboard]
+/// [_i7.Onboard]
 class OnboardRoute extends _i10.PageRouteInfo<void> {
   const OnboardRoute({List<_i10.PageRouteInfo>? children})
       : super(
@@ -180,7 +206,7 @@ class OnboardRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.OtpVerification]
+/// [_i2.OtpVerification]
 class OtpVerificationRoute
     extends _i10.PageRouteInfo<OtpVerificationRouteArgs> {
   OtpVerificationRoute({
@@ -242,6 +268,20 @@ class SplashRoute extends _i10.PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.UserDetails]
+class UserDetailsRoute extends _i10.PageRouteInfo<void> {
+  const UserDetailsRoute({List<_i10.PageRouteInfo>? children})
+      : super(
+          UserDetailsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserDetailsRoute';
 
   static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }

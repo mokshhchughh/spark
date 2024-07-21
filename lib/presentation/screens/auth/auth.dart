@@ -16,26 +16,49 @@ class _AuthState extends State<Auth> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              controller: _phoneController,
-              decoration: const InputDecoration(labelText: 'Phone number'),
-              keyboardType: TextInputType.phone,
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                // _verifyPhoneNumber();
-                AutoRouter.of(context).push(
-                  OtpVerificationRoute(verificationId: otpVerificationId),
-                );
-              },
-              child: const Text('Verify Phone Number'),
-            ),
-          ],
+      appBar: AppBar(),
+      body: SafeArea(
+        child: Padding(
+          padding: AppPaddings.appPadding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const DisplaySmall(
+                title: 'Mobile Number',
+                fontWeight: FontWeight.bold,
+              ),
+              const TitleMedium(title: 'Please enter 10-digit mobile number'),
+              AppSizes.gap12Space,
+              Row(
+                children: [
+                  CountryCodePicker(
+                    onChanged: (CountryCode countryCode) {
+                      log("New Country selected: $countryCode");
+                    },
+                    initialSelection: 'IN',
+                    favorite: const ['+91', 'IN'],
+                    showCountryOnly: false,
+                    showOnlyCountryWhenClosed: false,
+                    alignLeft: false,
+                  ),
+                  PrimaryTextField(
+                          controller: _phoneController,
+                          keyboardType: TextInputType.number)
+                      .expand(),
+                ],
+              ),
+              const Spacer(),
+              PrimaryButton(
+                title: 'Send OTP',
+                onTap: () {
+                  // _verifyPhoneNumber();
+                  AutoRouter.of(context).push(
+                    OtpVerificationRoute(verificationId: otpVerificationId),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
