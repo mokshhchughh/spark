@@ -1,0 +1,88 @@
+part of 'text_fields_imports.dart';
+
+class PrimaryTextField extends StatelessWidget {
+  const PrimaryTextField(
+      {super.key,
+      required this.controller,
+      this.hintText,
+      this.onTap,
+      this.onTapOutSide,
+      this.maxLines,
+      this.errorText,
+      this.prefixIcon,
+      this.contentPadding = 16,
+      this.borderRadius,
+      this.suffixIcon,
+      this.readOnly = false,
+      this.fillColor,
+      this.onChanged,
+      this.onEditingComplete,
+      this.onFieldSubmitted,
+      this.autofocus = false,
+      this.maxLength,
+      this.icon,
+      this.focusNode});
+
+  final TextEditingController controller;
+  final String? hintText;
+  final Function()? onTap;
+  final Function(PointerDownEvent)? onTapOutSide;
+  final int? maxLines;
+  final String? errorText;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final double contentPadding;
+  final double? borderRadius;
+  final bool readOnly;
+  final Color? fillColor;
+  final Function(String)? onChanged;
+  final Function()? onEditingComplete;
+  final Function(String)? onFieldSubmitted;
+  final bool autofocus;
+  final int? maxLength;
+  final Widget? icon;
+  final FocusNode? focusNode;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      autofocus: autofocus,
+      readOnly: readOnly,
+      focusNode: focusNode,
+      onTap: onTap,
+      controller: controller,
+      maxLines: maxLines,
+      maxLength: maxLength,
+      maxLengthEnforcement: MaxLengthEnforcement.enforced,
+      onChanged: onChanged,
+      onEditingComplete: onEditingComplete,
+      onFieldSubmitted: onFieldSubmitted,
+      onTapOutside: onTapOutSide ??
+          (event) => FocusManager.instance.primaryFocus?.unfocus(),
+      decoration: InputDecoration(
+        errorText: errorText,
+        hintText: hintText,
+        icon: icon,
+        hintMaxLines: maxLines,
+        contentPadding: EdgeInsets.all(contentPadding),
+        hintStyle: const TextStyle(color: Color(0xffc0c0c9)),
+        fillColor: fillColor ?? AppColors.white,
+        filled: true,
+        border: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.alphaBlack20),
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.alphaBlack20),
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: AppColors.alphaBlack70),
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        prefixIcon: prefixIcon,
+        suffixIcon: suffixIcon,
+      ),
+    );
+  }
+}

@@ -1,0 +1,19 @@
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+
+part 'body_styles/body_large.dart';
+part 'body_styles/body_medium.dart';
+part 'body_styles/body_small.dart';
+part 'display_styles/display_large.dart';
+part 'display_styles/display_medium.dart';
+part 'display_styles/display_small.dart';
+part 'headline_styles/headline_large.dart';
+part 'headline_styles/headline_medium.dart';
+part 'headline_styles/headline_small.dart';
+part 'label_styles/label_large.dart';
+part 'label_styles/label_medium.dart';
+part 'label_styles/label_small.dart';
+part 'title_styles/title_large.dart';
+part 'title_styles/title_medium.dart';
+part 'title_styles/title_small.dart';
+part 'title_styles/title_medium_richtext.dart';

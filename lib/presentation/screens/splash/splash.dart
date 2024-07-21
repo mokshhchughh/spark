@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> {
 
   moveToAuth() async {
     await Future.delayed(const Duration(seconds: 2), () {
-      AutoRouter.of(context).popAndPush(const AuthRoute());
+      AutoRouter.of(context).popAndPush(const OnboardRoute());
     });
   }
 

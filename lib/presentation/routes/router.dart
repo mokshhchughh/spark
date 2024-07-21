@@ -14,8 +14,12 @@ class AppRouter extends $AppRouter {
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         CustomRoute(
-          page: AuthRoute.page,
+          page: OnboardRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: AuthRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeft,
         ),
         CustomRoute(
           page: OtpVerificationRoute.page,

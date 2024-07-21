@@ -27,7 +27,12 @@ class _AuthState extends State<Auth> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: _verifyPhoneNumber,
+              onPressed: () {
+                // _verifyPhoneNumber();
+                AutoRouter.of(context).push(
+                  OtpVerificationRoute(verificationId: otpVerificationId),
+                );
+              },
               child: const Text('Verify Phone Number'),
             ),
           ],
