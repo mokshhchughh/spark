@@ -70,6 +70,12 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: const _i6.Home(),
       );
     },
+    HomeDetailsRoute.name: (routeData) {
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i6.HomeDetails(),
+      );
+    },
     OnboardRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -187,6 +193,20 @@ class HomeRoute extends _i10.PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.HomeDetails]
+class HomeDetailsRoute extends _i10.PageRouteInfo<void> {
+  const HomeDetailsRoute({List<_i10.PageRouteInfo>? children})
+      : super(
+          HomeDetailsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeDetailsRoute';
 
   static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }

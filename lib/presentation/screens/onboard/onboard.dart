@@ -27,6 +27,7 @@ class _OnboardState extends State<Onboard> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              AppSizes.gap12Space,
               SmoothPageIndicator(
                 controller: onboardViewModel.pageController, // PageController
                 count: 3,

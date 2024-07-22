@@ -26,10 +26,8 @@ class _SplashState extends State<Splash> {
     return Scaffold(
       body: Center(
         child: FadedScaleAnimation(
-          child: Image.asset(
-            AppIcons.iconsHome,
-            height: 42.h,
-            width: 139.w,
+          child: const FlutterLogo(
+            size: 200,
           ),
         ),
       ),

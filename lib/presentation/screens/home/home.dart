@@ -32,47 +32,62 @@ class _HomeState extends State<Home> {
                 });
               },
               items: [
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: AppColors.goldGradient,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        offset: const Offset(0, 4),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    AutoRouter.of(context).push(const HomeDetailsRoute());
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: AppColors.goldGradient,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          offset: const Offset(0, 4),
+                          blurRadius: 20.0,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 20),
-                  decoration: BoxDecoration(
-                    gradient: AppColors.silverGradient,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        offset: const Offset(0, 4),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    AutoRouter.of(context).push(const HomeDetailsRoute());
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
+                    decoration: BoxDecoration(
+                      gradient: AppColors.silverGradient,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          offset: const Offset(0, 4),
+                          blurRadius: 20.0,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    gradient: AppColors.yellowGradient,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        offset: const Offset(0, 4),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    AutoRouter.of(context).push(const HomeDetailsRoute());
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: AppColors.yellowGradient,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          offset: const Offset(0, 4),
+                          blurRadius: 20.0,
+                          spreadRadius: 0,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
