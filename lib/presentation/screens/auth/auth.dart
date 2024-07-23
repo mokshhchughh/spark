@@ -9,10 +9,7 @@ class Auth extends StatefulWidget {
 }
 
 class _AuthState extends State<Auth> {
-  String otpVerificationId = '';
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  final TextEditingController _phoneController = TextEditingController();
-
+  AuthViewModel authViewModel = AuthViewModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +30,9 @@ class _AuthState extends State<Auth> {
                 children: [
                   CountryCodePicker(
                     onChanged: (CountryCode countryCode) {
-                      log("New Country selected: $countryCode");
+                      authViewModel.countryCodeBloc
+                          .onUpdateData(countryCode.dialCode!);
+                      log("New Country selected: ${countryCode.dialCode}");
                     },
                     initialSelection: 'IN',
                     favorite: const ['+91', 'IN'],
@@ -42,18 +41,19 @@ class _AuthState extends State<Auth> {
                     alignLeft: false,
                   ),
                   PrimaryTextField(
-                          controller: _phoneController,
+                          controller: authViewModel._phoneController,
                           keyboardType: TextInputType.number)
                       .expand(),
                 ],
               ),
               const Spacer(),
-              PrimaryButton(
-                title: 'Send OTP',
-                onTap: () {
-                  // _verifyPhoneNumber();
-                  AutoRouter.of(context).push(
-                    OtpVerificationRoute(verificationId: otpVerificationId),
+              BlocBuilder<VelocityBloc<bool>, VelocityState<bool>>(
+                bloc: authViewModel.isLoadingBloc,
+                builder: (context, state) {
+                  return PrimaryButton(
+                    title: 'Send OTP',
+                    isLoading: state.data,
+                    onTap: () => authViewModel.verifyPhoneNumber(context),
                   );
                 },
               ),
@@ -62,38 +62,5 @@ class _AuthState extends State<Auth> {
         ),
       ),
     );
-  }
-
-  void _verifyPhoneNumber() async {
-    await _auth.verifyPhoneNumber(
-      phoneNumber: _phoneController.text,
-      verificationCompleted: (PhoneAuthCredential credential) async {
-        await _auth.signInWithCredential(credential);
-        _showSnackBar(
-            'Phone number automatically verified and user signed in: ${_auth.currentUser?.uid}');
-      },
-      verificationFailed: (FirebaseAuthException e) {
-        _showSnackBar(
-            'Phone number verification failed. Code: ${e.code}. Message: ${e.message}');
-      },
-      codeSent: (String verificationId, int? resendToken) {
-        _showSnackBar('Please check your phone for the verification code.');
-        AutoRouter.of(context)
-            .popAndPush(OtpVerificationRoute(verificationId: verificationId));
-        setState(() {
-          otpVerificationId = verificationId;
-        });
-      },
-      codeAutoRetrievalTimeout: (String verificationId) {
-        setState(() {
-          otpVerificationId = verificationId;
-        });
-      },
-    );
-  }
-
-  void _showSnackBar(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
   }
 }

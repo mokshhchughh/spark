@@ -9,15 +9,24 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  User? _user;
   @override
   void initState() {
-    moveToAuth();
+    _checkUserStatus();
     super.initState();
   }
 
-  moveToAuth() async {
+  void _checkUserStatus() async {
     await Future.delayed(const Duration(seconds: 2), () {
-      AutoRouter.of(context).popAndPush(const OnboardRoute());
+      FirebaseAuth auth = FirebaseAuth.instance;
+      setState(() {
+        _user = auth.currentUser;
+      });
+      if (_user == null) {
+        AutoRouter.of(context).push(const OnboardRoute());
+      } else {
+        AutoRouter.of(context).push(const DashboardRoute());
+      }
     });
   }
 

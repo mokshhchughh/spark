@@ -89,6 +89,7 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: _i2.OtpVerification(
           key: args.key,
           verificationId: args.verificationId,
+          mobileNumber: args.mobileNumber,
         ),
       );
     },
@@ -232,12 +233,14 @@ class OtpVerificationRoute
   OtpVerificationRoute({
     _i11.Key? key,
     required String verificationId,
+    required String mobileNumber,
     List<_i10.PageRouteInfo>? children,
   }) : super(
           OtpVerificationRoute.name,
           args: OtpVerificationRouteArgs(
             key: key,
             verificationId: verificationId,
+            mobileNumber: mobileNumber,
           ),
           initialChildren: children,
         );
@@ -252,15 +255,18 @@ class OtpVerificationRouteArgs {
   const OtpVerificationRouteArgs({
     this.key,
     required this.verificationId,
+    required this.mobileNumber,
   });
 
   final _i11.Key? key;
 
   final String verificationId;
 
+  final String mobileNumber;
+
   @override
   String toString() {
-    return 'OtpVerificationRouteArgs{key: $key, verificationId: $verificationId}';
+    return 'OtpVerificationRouteArgs{key: $key, verificationId: $verificationId, mobileNumber: $mobileNumber}';
   }
 }
 

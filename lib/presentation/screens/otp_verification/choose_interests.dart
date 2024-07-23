@@ -32,6 +32,9 @@ class _ChooseInterestsState extends State<ChooseInterests> {
   ];
 
   final List<String> _selectedChoices = [];
+
+  OtpVerificationViewModel otpVerificationViewModel =
+      OtpVerificationViewModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,11 +74,9 @@ class _ChooseInterestsState extends State<ChooseInterests> {
               ),
               const Spacer(),
               PrimaryButton(
-                title: "Let's Go",
-                onTap: () {
-                  AutoRouter.of(context).push(const DashboardRoute());
-                },
-              ),
+                  title: "Let's Go",
+                  onTap: () => otpVerificationViewModel.updateUserDetails(
+                      context, _selectedChoices)),
             ],
           ),
         ),

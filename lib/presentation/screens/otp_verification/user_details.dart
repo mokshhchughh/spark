@@ -21,6 +21,9 @@ class _UserDetailsState extends State<UserDetails> {
 
   String? selectedValue;
 
+  OtpVerificationViewModel otpVerificationViewModel =
+      OtpVerificationViewModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,7 @@ class _UserDetailsState extends State<UserDetails> {
                 fontWeight: FontWeight.bold,
               ),
               PrimaryTextField(
-                controller: TextEditingController(),
+                controller: otpVerificationViewModel.fullNameController,
                 labelText: 'Full Name',
               ),
               AppSizes.gap12Space,
@@ -121,9 +124,8 @@ class _UserDetailsState extends State<UserDetails> {
                 children: [
                   InkWell(
                     borderRadius: BorderRadius.circular(100),
-                    onTap: () {
-                      AutoRouter.of(context).push(const ChooseInterestsRoute());
-                    },
+                    onTap: () =>
+                        otpVerificationViewModel.addUserDetails(context),
                     child: Ink(
                       height: 80.h,
                       width: 80.w,

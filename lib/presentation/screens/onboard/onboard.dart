@@ -54,7 +54,7 @@ class _OnboardState extends State<Onboard> {
               ).expand(),
               PrimaryButton(
                 title: "Sign in to continue",
-                onTap: () => AutoRouter.of(context).popAndPush(
+                onTap: () => AutoRouter.of(context).push(
                   const AuthRoute(),
                 ),
               ),

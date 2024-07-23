@@ -12,6 +12,7 @@ class PrimaryButton extends StatelessWidget {
     this.icon,
     this.borderRadius,
     this.padding,
+    this.isLoading,
   });
 
   final String title;
@@ -23,6 +24,7 @@ class PrimaryButton extends StatelessWidget {
   final Widget? icon;
   final double? borderRadius;
   final EdgeInsetsGeometry? padding;
+  final bool? isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +41,18 @@ class PrimaryButton extends StatelessWidget {
         ),
       ),
       icon: icon,
-      label: TitleMedium(
-          title: title,
-          color: titleColor ??
-              Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .apply(color: AppColors.white)
-                  .color),
+      label: isLoading == true
+          ? const CircularProgressIndicator.adaptive(
+              backgroundColor: AppColors.white,
+            )
+          : TitleMedium(
+              title: title,
+              color: titleColor ??
+                  Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .apply(color: AppColors.white)
+                      .color),
     );
   }
 }
