@@ -57,7 +57,7 @@ class _ProfileState extends State<Profile> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               const CircleAvatar(
-                                radius: 40,
+                                radius: 30,
                                 backgroundImage:
                                     AssetImage(AppIcons.iconsNormal),
                               ),
@@ -91,40 +91,66 @@ class _ProfileState extends State<Profile> {
                             ],
                           ),
                           AppSizes.gap32Space,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                children: [
-                                  const TitleSmall(title: 'Connections'),
-                                  TitleLarge(
-                                    title:
-                                        state.data!['connections'].toString(),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ],
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: AppColors.grey300,
                               ),
-                              Column(
-                                children: [
-                                  const TitleSmall(
-                                    title: 'Trophies',
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Column(
+                                  children: [
+                                    const TitleSmall(title: 'Connections'),
+                                    TitleLarge(
+                                      title:
+                                          state.data!['connections'].toString(),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 100,
+                                  width: 1,
+                                  child: Divider(
+                                    height: 100,
+                                    thickness: 60,
+                                    color: AppColors.grey300,
                                   ),
-                                  TitleLarge(
-                                    title: state.data!['trophies'].toString(),
-                                    fontWeight: FontWeight.bold,
+                                ),
+                                Column(
+                                  children: [
+                                    const TitleSmall(
+                                      title: 'Trophies',
+                                    ),
+                                    TitleLarge(
+                                      title: state.data!['trophies'].toString(),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 100,
+                                  width: 1,
+                                  child: Divider(
+                                    height: 100,
+                                    thickness: 60,
+                                    color: AppColors.grey300,
                                   ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  const TitleSmall(title: 'Events'),
-                                  TitleLarge(
-                                    title: state.data!['events'].toString(),
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ],
-                              ),
-                            ],
+                                ),
+                                Column(
+                                  children: [
+                                    const TitleSmall(title: 'Events'),
+                                    TitleLarge(
+                                      title: state.data!['events'].toString(),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                           AppSizes.gap24Space,
                           const TitleLarge(

@@ -24,6 +24,7 @@ class _DashboardState extends State<Dashboard> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.white,
         currentIndex: currentIndex,
         selectedItemColor: AppColors.primary,
         unselectedItemColor: AppColors.primary50,

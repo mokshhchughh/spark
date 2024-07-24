@@ -47,7 +47,7 @@ sealed class AppColors {
   static const Color orange = Color(0xffFF8169);
 
   /// Figma Colors
-  static const Color primary = Color(0xFFFF5722);
+  static const Color primary = Color(0xFFBB65FF);
   static const Color secondary = Color(0xff00579c);
   static const Color textColor = Color(0xFFF4F4F4);
   static const Color grey = Color(0xffD9D9D9);

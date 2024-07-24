@@ -57,6 +57,18 @@ class AppIcons {
   /// assets/icons/settings.png
   static const String iconsSettings = "assets/icons/settings.png";
 
+  /// Assets for iconsSparkAppLogo
+  /// assets/icons/spark_app_logo.png
+  static const String iconsSparkAppLogo = "assets/icons/spark_app_logo.png";
+
+  /// Assets for iconsSparkBg
+  /// assets/icons/spark_bg.png
+  static const String iconsSparkBg = "assets/icons/spark_bg.png";
+
+  /// Assets for iconsSparkLogo
+  /// assets/icons/spark_logo.png
+  static const String iconsSparkLogo = "assets/icons/spark_logo.png";
+
   /// Assets for iconsTrash
   /// assets/icons/trash.png
   static const String iconsTrash = "assets/icons/trash.png";
