@@ -134,11 +134,6 @@ class _OnboardState extends State<Onboard> {
                           ),
                   onTap: () {},
                 ),
-                TextButton(
-                    onPressed: () {
-                      AutoRouter.of(context).push(const DashboardRoute());
-                    },
-                    child: const Text('Skip'))
               ],
             ),
           ),

@@ -12,7 +12,7 @@ class EventsCard extends StatelessWidget {
           image: AssetImage(AppIcons.iconsEvent),
           fit: BoxFit.cover,
         ),
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Stack(
         children: [
@@ -25,7 +25,7 @@ class EventsCard extends StatelessWidget {
               width: 60,
               decoration: BoxDecoration(
                   color: AppColors.white,
-                  borderRadius: BorderRadius.circular(4)),
+                  borderRadius: BorderRadius.circular(16)),
               child: const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -45,8 +45,8 @@ class EventsCard extends StatelessWidget {
                 color: AppColors.white,
                 border: Border.all(color: AppColors.alphaBlack10),
                 borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10),
-                  topRight: Radius.circular(10),
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
                 ),
               ),
               child: Column(

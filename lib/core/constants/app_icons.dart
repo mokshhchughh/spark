@@ -1,6 +1,10 @@
 class AppIcons {
   AppIcons._();
   
+  /// Assets for iconsCalendar
+  /// assets/icons/Calendar.png
+  static const String iconsCalendar = "assets/icons/Calendar.png";
+
   /// Assets for iconsChat
   /// assets/icons/chat.png
   static const String iconsChat = "assets/icons/chat.png";

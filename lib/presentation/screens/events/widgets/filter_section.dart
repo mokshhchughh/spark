@@ -51,9 +51,15 @@ class _FiltersSectionState extends State<FiltersSection> {
               spacing: 16.0,
               children: _choices.map((choice) {
                 return ChoiceChip(
-                  label: TitleSmall(title: choice),
-                  backgroundColor: AppColors.primary.withOpacity(0.1),
+                  label: TitleSmall(
+                      title: choice,
+                      color: _selectedChoices.contains(choice)
+                          ? AppColors.white
+                          : AppColors.black),
                   selected: _selectedChoices.contains(choice),
+                  selectedColor: AppColors.primary,
+                  backgroundColor: AppColors.white,
+                  checkmarkColor: AppColors.white,
                   onSelected: (bool selected) {
                     setState(() {
                       if (selected) {

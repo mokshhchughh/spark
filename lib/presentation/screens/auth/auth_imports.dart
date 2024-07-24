@@ -13,6 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:velocity_bloc/velocity_bloc.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../../../core/constants/app_colors.dart';
+import '../../../core/constants/app_icons.dart';
 import '../../routes/router_imports.gr.dart';
 
 part 'auth.dart';

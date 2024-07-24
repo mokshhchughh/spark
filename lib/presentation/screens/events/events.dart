@@ -11,49 +11,56 @@ class Events extends StatefulWidget {
 class _EventsState extends State<Events> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      resizeToAvoidBottomInset: true,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  const Expanded(
-                    child: SearchTextField(
-                      hintText: 'Search',
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(AppIcons.iconsOnboardBg),
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.transparent,
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    const Expanded(
+                      child: SearchTextField(
+                        hintText: 'Search',
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      VxBottomSheet.bottomSheetView(
-                        context,
-                        isSafeAreaFromBottom: true,
-                        backgroundColor: AppColors.white,
-                        child: const FiltersSection(),
-                      );
-                    },
-                    icon: Image.asset(
-                      AppIcons.iconsTuning,
-                      scale: 2,
+                    IconButton(
+                      onPressed: () {
+                        VxBottomSheet.bottomSheetView(
+                          context,
+                          isSafeAreaFromBottom: true,
+                          backgroundColor: AppColors.white,
+                          child: const FiltersSection(),
+                        );
+                      },
+                      icon: Image.asset(
+                        AppIcons.iconsTuning,
+                        scale: 2,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              AppSizes.verticalSpace,
-              Expanded(
-                child: ListView.separated(
-                  itemCount: 3,
-                  shrinkWrap: true,
-                  separatorBuilder: (_, __) => AppSizes.verticalSpace,
-                  itemBuilder: (context, index) {
-                    return const EventsCard();
-                  },
+                  ],
                 ),
-              ),
-            ],
+                AppSizes.verticalSpace,
+                Expanded(
+                  child: ListView.separated(
+                    itemCount: 3,
+                    shrinkWrap: true,
+                    separatorBuilder: (_, __) => AppSizes.verticalSpace,
+                    itemBuilder: (context, index) {
+                      return const EventsCard();
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

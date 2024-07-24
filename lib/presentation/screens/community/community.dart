@@ -80,7 +80,7 @@ class _CommunityState extends State<Community> {
                     children: const [
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16),
-                        child: Text('Mentors'),
+                        child: Text('Community'),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 16),
@@ -100,38 +100,153 @@ class _CommunityState extends State<Community> {
                         });
                       },
                       children: [
-                        ListView.builder(
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return const ListTile(
-                              leading: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage(AppIcons.iconsNormal),
+                        ListView(
+                          children: [
+                            ExpansionTile(
+                              initiallyExpanded: true,
+                              backgroundColor: AppColors.white,
+                              collapsedBackgroundColor: AppColors.white,
+                              shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                    color: AppColors.alphaBlack40,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)),
+                              collapsedShape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                    color: AppColors.alphaBlack40,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)),
+                              title: const TitleMedium(
+                                title: 'Recommended Groups',
+                                fontWeight: FontWeight.bold,
                               ),
-                              title: TitleMedium(title: "User Full Name"),
-                              subtitle: TitleSmall(
-                                title: 'Designation',
-                                color: AppColors.alphaBlack50,
+                              children: [
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: 4,
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      leading: const CircleAvatar(
+                                        backgroundImage:
+                                            AssetImage(AppIcons.iconsNormal),
+                                      ),
+                                      title: const TitleMedium(
+                                          title: "Group Name"),
+                                      subtitle: const TitleSmall(
+                                        title: 'Location',
+                                        color: AppColors.alphaBlack50,
+                                      ),
+                                      trailing: TextButton.icon(
+                                        onPressed: () {
+                                          VxToast.show(context,
+                                              msg:
+                                                  'Successfully joined the group.');
+                                        },
+                                        style: TextButton.styleFrom(
+                                          backgroundColor: AppColors.primary
+                                              .withOpacity(0.1),
+                                        ),
+                                        label: const TitleSmall(title: 'Join'),
+                                        icon: const Icon(Icons.add),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                            AppSizes.verticalSpace,
+                            ExpansionTile(
+                              initiallyExpanded: true,
+                              backgroundColor: AppColors.white,
+                              collapsedBackgroundColor: AppColors.white,
+                              shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                    color: AppColors.alphaBlack40,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)),
+                              collapsedShape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                    color: AppColors.alphaBlack40,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)),
+                              title: const TitleMedium(
+                                title: 'My Groups',
+                                fontWeight: FontWeight.bold,
                               ),
-                            );
-                          },
+                              children: [
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: 4,
+                                  itemBuilder: (context, index) {
+                                    return const ListTile(
+                                      leading: CircleAvatar(
+                                        backgroundImage:
+                                            AssetImage(AppIcons.iconsNormal),
+                                      ),
+                                      title: TitleMedium(title: "Group Name"),
+                                      subtitle: TitleSmall(
+                                        title: 'Location',
+                                        color: AppColors.alphaBlack50,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
-                        ListView.builder(
-                          itemCount: 10,
-                          itemBuilder: (context, index) {
-                            return const ListTile(
-                              leading: CircleAvatar(
-                                backgroundImage:
-                                    AssetImage(AppIcons.iconsNormal),
+                        ListView(
+                          children: [
+                            ExpansionTile(
+                              initiallyExpanded: true,
+                              backgroundColor: AppColors.white,
+                              collapsedBackgroundColor: AppColors.white,
+                              shape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                    color: AppColors.alphaBlack40,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)),
+                              collapsedShape: RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                    color: AppColors.alphaBlack40,
+                                  ),
+                                  borderRadius: BorderRadius.circular(20)),
+                              title: const TitleMedium(
+                                title: 'Allies',
+                                fontWeight: FontWeight.bold,
                               ),
-                              title: TitleMedium(title: "User Full Name"),
-                              subtitle: TitleSmall(
-                                title: 'Designation',
-                                color: AppColors.alphaBlack50,
-                              ),
-                            );
-                          },
-                        ),
+                              children: [
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: 4,
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      leading: const CircleAvatar(
+                                        backgroundImage:
+                                            AssetImage(AppIcons.iconsNormal),
+                                      ),
+                                      title:
+                                          const TitleMedium(title: "User Name"),
+                                      subtitle: Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.done_all,
+                                            color: AppColors.alphaBlack50,
+                                          ),
+                                          AppSizes.gapH10Space,
+                                          const TitleSmall(
+                                            title: 'Message',
+                                            color: AppColors.alphaBlack50,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),

@@ -45,19 +45,18 @@ class OtpVerificationViewModel {
   }
 
   final TextEditingController fullNameController = TextEditingController();
-  final TextEditingController ageController = TextEditingController();
-  final TextEditingController genderController = TextEditingController();
-  final TextEditingController classController = TextEditingController();
-  addUserDetails(context) async {
+  final TextEditingController dateController = TextEditingController();
+
+  addUserDetails(context, String gender, String myClass) async {
     User? user = _auth.currentUser;
     if (user != null) {
       DocumentReference userDoc = _firestore.collection('users').doc(user.uid);
       await userDoc.set({
         'uid': user.uid,
         'name': fullNameController.text.trim(),
-        'age': '28',
-        'gender': 'Male',
-        'class': 'X',
+        'dateOfBirth': dateController.text,
+        'gender': gender,
+        'class': myClass,
         'connections': 0,
         'trophies': 0,
         'events': 0,
@@ -79,5 +78,15 @@ class OtpVerificationViewModel {
       log('User details updated: ${user.uid}');
       AutoRouter.of(context).replaceAll([const DashboardRoute()]);
     }
+  }
+
+  int calculateAge(DateTime birthDate) {
+    DateTime today = DateTime.now();
+    int age = today.year - birthDate.year;
+    if (today.month < birthDate.month ||
+        (today.month == birthDate.month && today.day < birthDate.day)) {
+      age--;
+    }
+    return age;
   }
 }

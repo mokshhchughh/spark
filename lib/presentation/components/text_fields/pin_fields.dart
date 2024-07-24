@@ -53,8 +53,8 @@ class PinFields extends StatelessWidget {
       controller: controller,
       enablePinAutofill: true,
       textStyle: TextStyle(
-          color:
-              isError == true ? AppColors.destructive600 : AppColors.grey500),
+          color: isError == true ? AppColors.destructive600 : AppColors.black,
+          fontWeight: FontWeight.bold),
       pinTheme: PinTheme(
         fieldOuterPadding: EdgeInsets.symmetric(horizontal: 5.h),
         shape: shape ?? PinCodeFieldShape.box,

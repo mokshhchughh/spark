@@ -18,35 +18,47 @@ class _OtpVerificationState extends State<OtpVerification> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: SafeArea(
-        child: Padding(
-          padding: AppPaddings.appPadding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const DisplaySmall(
-                title: 'Verify OTP',
-                fontWeight: FontWeight.bold,
-              ),
-              TitleMedium(
-                  title:
-                      'Please enter 6-digit OTP sent to ${widget.mobileNumber}'),
-              AppSizes.verticalSpace,
-              PinFields(
-                obscureText: true,
-                autofocus: true,
-                borderRadius: 5.r,
-                controller: otpVerificationViewModel._otpController,
-                onTap: () {},
-                onChanged: (value) {},
-                onCompleted: (value) {
-                  otpVerificationViewModel.signInWithPhoneNumber(
-                      widget.verificationId, context);
-                },
-              ),
-            ],
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(AppIcons.iconsOnboardBg),
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.transparent,
+        appBar: AppBar(
+          backgroundColor: AppColors.transparent,
+        ),
+        body: SafeArea(
+          child: Padding(
+            padding: AppPaddings.appPadding,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const DisplaySmall(
+                  title: 'Verify OTP',
+                  fontWeight: FontWeight.bold,
+                ),
+                TitleMedium(
+                    title:
+                        'Please enter 6-digit OTP sent to ${widget.mobileNumber}'),
+                AppSizes.verticalSpace,
+                PinFields(
+                  obscureText: false,
+                  autofocus: true,
+                  borderRadius: 5.r,
+                  controller: otpVerificationViewModel._otpController,
+                  onTap: () {},
+                  onChanged: (value) {},
+                  onCompleted: (value) {
+                    // AutoRouter.of(context).push(const UserDetailsRoute());
+                    otpVerificationViewModel.signInWithPhoneNumber(
+                        widget.verificationId, context);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),

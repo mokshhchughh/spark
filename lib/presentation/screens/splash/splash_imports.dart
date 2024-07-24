@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/constants/app_icons.dart';
 import '../../routes/router_imports.gr.dart';
 
 part 'splash.dart';

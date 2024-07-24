@@ -9,7 +9,22 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int page = 0;
+  HomeViewModel homeViewModel = HomeViewModel();
+
+  @override
+  void initState() {
+    homeViewModel.pageController = PageController(initialPage: 0);
+    homeViewModel.startAutoScroll();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    homeViewModel._timer?.cancel();
+    homeViewModel.pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,100 +36,76 @@ class _HomeState extends State<Home> {
       ),
       child: Scaffold(
         backgroundColor: AppColors.transparent,
+        appBar: AppBar(
+          backgroundColor: AppColors.transparent,
+          leadingWidth: 300,
+          leading: Row(
+            children: [
+              AppSizes.horizontalSpace,
+              Image.asset(
+                AppIcons.iconsSparkLogo,
+                width: 23,
+                height: 27,
+              ),
+              AppSizes.gapH10Space,
+              const TitleLarge(
+                title: 'Spark',
+                fontWeight: FontWeight.w900,
+                color: AppColors.primary,
+              )
+            ],
+          ),
+        ),
         body: SafeArea(
           child: ListView(
             children: [
+              AppSizes.verticalSpace,
               const SearchTextField(
                 hintText: 'Bangalore, India',
+                fillColor: AppColors.white,
               ).pSymmetric(h: 16),
               AppSizes.verticalSpace,
-              VxSwiper(
-                height: 150,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: false,
-                onPageChanged: (index) {
-                  setState(() {
-                    page = index;
-                  });
-                },
-                items: [
-                  GestureDetector(
-                    onTap: () {
-                      AutoRouter.of(context).push(const HomeDetailsRoute());
+              SizedBox(
+                height: 120,
+                child: PageView(
+                  controller: homeViewModel.pageController,
+                  children: List.generate(
+                    3,
+                    (index) {
+                      return Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        padding: const EdgeInsets.all(16),
+                        height: 120,
+                        decoration: BoxDecoration(
+                          color: const Color(0xffDFB6FF),
+                          borderRadius: BorderRadius.circular(38),
+                        ),
+                        child: TitleLarge(
+                          title: index == 0
+                              ? 'Giveaways'
+                              : index == 1
+                                  ? 'Scholarship'
+                                  : 'Today\'s Events',
+                          fontWeight: FontWeight.bold,
+                          color: const Color(0xff8F00FF),
+                        ),
+                      );
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: AppColors.goldGradient,
-                        borderRadius: BorderRadius.circular(40),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            offset: const Offset(0, 4),
-                            blurRadius: 20.0,
-                            spreadRadius: 0,
-                          ),
-                        ],
-                      ),
-                    ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      AutoRouter.of(context).push(const HomeDetailsRoute());
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 20),
-                      decoration: BoxDecoration(
-                        gradient: AppColors.silverGradient,
-                        borderRadius: BorderRadius.circular(40),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            offset: const Offset(0, 4),
-                            blurRadius: 20.0,
-                            spreadRadius: 0,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      AutoRouter.of(context).push(const HomeDetailsRoute());
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        gradient: AppColors.yellowGradient,
-                        borderRadius: BorderRadius.circular(40),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5),
-                            offset: const Offset(0, 4),
-                            blurRadius: 20.0,
-                            spreadRadius: 0,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
               AppSizes.gap12Space,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ...List.generate(3, (index) {
-                    return Container(
-                      height: 8,
-                      margin: const EdgeInsets.symmetric(horizontal: 2),
-                      width: 8,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: page == index
-                              ? AppColors.primary
-                              : AppColors.grey200),
-                    );
-                  })
-                ],
+              Center(
+                child: SmoothPageIndicator(
+                  controller: homeViewModel.pageController, // PageController
+                  count: 3,
+                  effect: const WormEffect(
+                    activeDotColor: AppColors.primary,
+                    dotHeight: 10.0,
+                    dotWidth: 10.0,
+                  ), // your preferred effect
+                  onDotClicked: (index) {},
+                ),
               ),
               AppSizes.verticalSpace,
               Container(
