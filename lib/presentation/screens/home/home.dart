@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage(AppIcons.iconsSparkBg),
+          image: AssetImage(AppIcons.iconsOnboardBg),
         ),
       ),
       child: Scaffold(
@@ -123,22 +123,105 @@ class _HomeState extends State<Home> {
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(38),
                 ),
-                child: ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 7,
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return const ListTile(
-                      leading: CircleAvatar(
-                        backgroundImage: AssetImage(AppIcons.iconsNormal),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ListView.separated(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: 3,
+                      shrinkWrap: true,
+                      separatorBuilder: (_, __) => const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        child: Divider(
+                          color: AppColors.alphaBlack20,
+                        ),
                       ),
-                      title: TitleMedium(title: 'User Full Name'),
-                      subtitle: TitleSmall(
-                        title: 'Designation',
-                        color: AppColors.alphaBlack50,
+                      itemBuilder: (context, index) {
+                        return const PostsCard();
+                      },
+                    ),
+                    AppSizes.gap24Space,
+                    const Divider(
+                      color: AppColors.alphaBlack20,
+                    ),
+                    AppSizes.gap12Space,
+                    const TitleLarge(
+                      title: 'Yayy! keep growing',
+                      fontWeight: FontWeight.bold,
+                    ),
+                    AppSizes.gap12Space,
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: const Color(0xfff4f4f4),
+                        borderRadius: BorderRadius.circular(24),
                       ),
-                    );
-                  },
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: AppColors.white,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  AppIcons.iconsHistory,
+                                  color: AppColors.primary,
+                                  scale: 2,
+                                ),
+                                const TitleMedium(
+                                  title: '7 Days',
+                                  fontWeight: FontWeight.bold,
+                                )
+                              ],
+                            ),
+                          ),
+                          AppSizes.gapH10Space,
+                          Column(
+                            children: [
+                              const TitleMedium(
+                                title: '21 Profile views last 7 days',
+                                fontWeight: FontWeight.bold,
+                              ),
+                              AppSizes.gap12Space,
+                              Stack(
+                                children: [
+                                  ...List.generate(4, (index) {
+                                    return Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: index == 0
+                                              ? 12
+                                              : index == 1
+                                                  ? 36
+                                                  : 60),
+                                      child: CircleAvatar(
+                                        foregroundImage: NetworkImage(
+                                          'https://i.pravatar.cc/50?u=$index',
+                                        ),
+                                      ),
+                                    );
+                                  })
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    AppSizes.gap12Space,
+                    PrimaryButton(
+                      title: 'View more',
+                      onTap: () {},
+                    ),
+                    AppSizes.gap24Space,
+                    const Divider(
+                      color: AppColors.alphaBlack20,
+                    ),
+                    AppSizes.gap12Space,
+                    const SecondPostsCard(),
+                  ],
                 ),
               ),
             ],

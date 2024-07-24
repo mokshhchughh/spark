@@ -33,99 +33,110 @@ class _CommunityState extends State<Community> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      resizeToAvoidBottomInset: true,
-      body: SafeArea(
-        child: DefaultTabController(
-          length: 2,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const Expanded(
-                      child: SearchTextField(
-                        hintText: 'Search',
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        AppIcons.iconsTuning,
-                        scale: 2,
-                      ),
-                    ),
-                  ],
-                ),
-                AppSizes.gap32Space,
-                ToggleButtons(
-                  borderRadius: BorderRadius.circular(8),
-                  borderColor: AppColors.primary,
-                  selectedBorderColor: AppColors.primary,
-                  fillColor: AppColors.primary.withOpacity(0.1),
-                  selectedColor: AppColors.primary,
-                  color: Colors.black,
-                  isSelected: isSelected,
-                  onPressed: _onButtonPressed,
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Text('Mentors'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Text('Allies'),
-                    ),
-                  ],
-                ),
-                AppSizes.gap32Space,
-                Expanded(
-                  child: PageView(
-                    controller: _pageController,
-                    onPageChanged: (index) {
-                      setState(() {
-                        for (int i = 0; i < isSelected.length; i++) {
-                          isSelected[i] = i == index;
-                        }
-                      });
-                    },
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(AppIcons.iconsOnboardBg),
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: AppColors.transparent,
+        extendBody: true,
+        resizeToAvoidBottomInset: true,
+        body: SafeArea(
+          child: DefaultTabController(
+            length: 2,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                children: [
+                  Row(
                     children: [
-                      ListView.builder(
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          return const ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: AssetImage(AppIcons.iconsNormal),
-                            ),
-                            title: TitleMedium(title: "User Full Name"),
-                            subtitle: TitleSmall(
-                              title: 'Designation',
-                              color: AppColors.alphaBlack50,
-                            ),
-                          );
-                        },
+                      const Expanded(
+                        child: SearchTextField(
+                          hintText: 'Search',
+                        ),
                       ),
-                      ListView.builder(
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          return const ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: AssetImage(AppIcons.iconsNormal),
-                            ),
-                            title: TitleMedium(title: "User Full Name"),
-                            subtitle: TitleSmall(
-                              title: 'Designation',
-                              color: AppColors.alphaBlack50,
-                            ),
-                          );
-                        },
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          AppIcons.iconsTuning,
+                          scale: 2,
+                        ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                  AppSizes.gap32Space,
+                  ToggleButtons(
+                    borderRadius: BorderRadius.circular(8),
+                    borderColor: AppColors.primary,
+                    selectedBorderColor: AppColors.primary,
+                    fillColor: AppColors.primary.withOpacity(0.1),
+                    selectedColor: AppColors.primary,
+                    color: Colors.black,
+                    isSelected: isSelected,
+                    onPressed: _onButtonPressed,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: Text('Mentors'),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        child: Text('Allies'),
+                      ),
+                    ],
+                  ),
+                  AppSizes.gap32Space,
+                  Expanded(
+                    child: PageView(
+                      controller: _pageController,
+                      onPageChanged: (index) {
+                        setState(() {
+                          for (int i = 0; i < isSelected.length; i++) {
+                            isSelected[i] = i == index;
+                          }
+                        });
+                      },
+                      children: [
+                        ListView.builder(
+                          itemCount: 10,
+                          itemBuilder: (context, index) {
+                            return const ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    AssetImage(AppIcons.iconsNormal),
+                              ),
+                              title: TitleMedium(title: "User Full Name"),
+                              subtitle: TitleSmall(
+                                title: 'Designation',
+                                color: AppColors.alphaBlack50,
+                              ),
+                            );
+                          },
+                        ),
+                        ListView.builder(
+                          itemCount: 10,
+                          itemBuilder: (context, index) {
+                            return const ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage:
+                                    AssetImage(AppIcons.iconsNormal),
+                              ),
+                              title: TitleMedium(title: "User Full Name"),
+                              subtitle: TitleSmall(
+                                title: 'Designation',
+                                color: AppColors.alphaBlack50,
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

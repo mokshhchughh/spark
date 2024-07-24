@@ -5,6 +5,10 @@ class AppIcons {
   /// assets/icons/chat.png
   static const String iconsChat = "assets/icons/chat.png";
 
+  /// Assets for iconsChatRoundDots
+  /// assets/icons/ChatRoundDots.png
+  static const String iconsChatRoundDots = "assets/icons/ChatRoundDots.png";
+
   /// Assets for iconsConfettiMinimalistic
   /// assets/icons/ConfettiMinimalistic.png
   static const String iconsConfettiMinimalistic = "assets/icons/ConfettiMinimalistic.png";
@@ -17,6 +21,22 @@ class AppIcons {
   /// assets/icons/event.jpg
   static const String iconsEvent = "assets/icons/event.jpg";
 
+  /// Assets for iconsForward
+  /// assets/icons/Forward.png
+  static const String iconsForward = "assets/icons/Forward.png";
+
+  /// Assets for iconsHat
+  /// assets/icons/hat.png
+  static const String iconsHat = "assets/icons/hat.png";
+
+  /// Assets for iconsHeart
+  /// assets/icons/Heart.png
+  static const String iconsHeart = "assets/icons/Heart.png";
+
+  /// Assets for iconsHistory
+  /// assets/icons/History.png
+  static const String iconsHistory = "assets/icons/History.png";
+
   /// Assets for iconsHome
   /// assets/icons/home.png
   static const String iconsHome = "assets/icons/home.png";
@@ -24,6 +44,10 @@ class AppIcons {
   /// Assets for iconsHomeOutline
   /// assets/icons/home_outline.png
   static const String iconsHomeOutline = "assets/icons/home_outline.png";
+
+  /// Assets for iconsLightbulbBolt
+  /// assets/icons/LightbulbBolt.png
+  static const String iconsLightbulbBolt = "assets/icons/LightbulbBolt.png";
 
   /// Assets for iconsLockkeyhole
   /// assets/icons/lockkeyhole.png
@@ -44,6 +68,10 @@ class AppIcons {
   /// Assets for iconsNormal
   /// assets/icons/normal.jpg
   static const String iconsNormal = "assets/icons/normal.jpg";
+
+  /// Assets for iconsOnboardBg
+  /// assets/icons/onboard_bg.png
+  static const String iconsOnboardBg = "assets/icons/onboard_bg.png";
 
   /// Assets for iconsPhoneRounded
   /// assets/icons/phone_rounded.png
@@ -84,6 +112,26 @@ class AppIcons {
   /// Assets for iconsUser
   /// assets/icons/user.png
   static const String iconsUser = "assets/icons/user.png";
+
+  /// Assets for iconsUser1
+  /// assets/icons/user1.png
+  static const String iconsUser1 = "assets/icons/user1.png";
+
+  /// Assets for iconsUser2
+  /// assets/icons/user2.png
+  static const String iconsUser2 = "assets/icons/user2.png";
+
+  /// Assets for iconsUser3
+  /// assets/icons/user3.png
+  static const String iconsUser3 = "assets/icons/user3.png";
+
+  /// Assets for iconsUser4
+  /// assets/icons/user4.png
+  static const String iconsUser4 = "assets/icons/user4.png";
+
+  /// Assets for iconsUser5
+  /// assets/icons/user5.png
+  static const String iconsUser5 = "assets/icons/user5.png";
 
   /// Assets for iconsUserCheckRounded
   /// assets/icons/user_check_rounded.png

@@ -8,7 +8,8 @@ class TitleSmall extends StatelessWidget {
       this.fontWeight,
       this.overflow,
       this.textAlign = TextAlign.start,
-      this.decoration});
+      this.decoration,
+      this.maxLines});
 
   final String title;
   final Color? color;
@@ -16,11 +17,13 @@ class TitleSmall extends StatelessWidget {
   final TextOverflow? overflow;
   final TextAlign textAlign;
   final TextDecoration? decoration;
+  final int? maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
+      maxLines: maxLines,
       textAlign: textAlign,
       style: TextStyle(
         fontSize: Theme.of(context).textTheme.titleSmall!.fontSize,

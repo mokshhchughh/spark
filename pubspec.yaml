@@ -54,6 +54,7 @@ dependencies:
   pin_code_fields: ^8.0.1
   dropdown_button2: ^2.3.9
   equatable: ^2.0.5
+  overlap_stack: ^1.0.1
 
 dev_dependencies:
   flutter_test:
