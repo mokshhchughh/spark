@@ -93,10 +93,10 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                 PrimaryButton(
                     title: "Let's Go",
                     onTap: () {
-                      // otpVerificationViewModel.updateUserDetails(
-                      //     context, _selectedChoices);
-                      AutoRouter.of(context)
-                          .replaceAll([const DashboardRoute()]);
+                      otpVerificationViewModel.updateUserDetails(
+                          context, _selectedChoices);
+                      // AutoRouter.of(context)
+                      //     .replaceAll([const DashboardRoute()]);
                     }),
               ],
             ),

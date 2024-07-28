@@ -209,9 +209,9 @@ class _UserDetailsState extends State<UserDetails> {
                 PrimaryButton(
                   title: 'Next',
                   onTap: () {
-                    // otpVerificationViewModel.addUserDetails(
-                    //     context, _selectedGender, selectedValue!);
-                    AutoRouter.of(context).push(const ChooseInterestsRoute());
+                    otpVerificationViewModel.addUserDetails(
+                        context, _selectedGender, selectedValue!);
+                    // AutoRouter.of(context).push(const ChooseInterestsRoute());
                   },
                 ),
               ],

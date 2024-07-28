@@ -52,9 +52,9 @@ class _OtpVerificationState extends State<OtpVerification> {
                   onTap: () {},
                   onChanged: (value) {},
                   onCompleted: (value) {
-                    AutoRouter.of(context).push(const UserDetailsRoute());
-                    // otpVerificationViewModel.signInWithPhoneNumber(
-                    //     widget.verificationId, context);
+                    // AutoRouter.of(context).push(const UserDetailsRoute());
+                    otpVerificationViewModel.signInWithPhoneNumber(
+                        widget.verificationId, context);
                   },
                 ),
               ],

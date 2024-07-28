@@ -72,11 +72,11 @@ class _AuthState extends State<Auth> {
                       isLoading: state.data,
                       onTap: mobileNumber.isNotEmptyAndNotNull
                           ? () {
-                              AutoRouter.of(context).push(OtpVerificationRoute(
-                                  verificationId: '1',
-                                  mobileNumber: '3454543534353'));
+                              // AutoRouter.of(context).push(OtpVerificationRoute(
+                              //     verificationId: '1',
+                              //     mobileNumber: '3454543534353'));
 
-                              // authViewModel.verifyPhoneNumber(context);
+                              authViewModel.verifyPhoneNumber(context);
                             }
                           : null,
                     );
