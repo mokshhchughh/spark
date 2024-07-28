@@ -55,13 +55,13 @@ class _ChooseInterestsState extends State<ChooseInterests> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const DisplaySmall(
+                const HeadlineMedium(
                   title: 'Interests',
                   fontWeight: FontWeight.bold,
                 ),
                 const TitleMedium(
                     title: 'Choose your interests. You can change them later'),
-                AppSizes.verticalSpace,
+                AppSizes.gap24Space,
                 Wrap(
                   spacing: 8.0,
                   children: _choices.map((choice) {
@@ -75,6 +75,7 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                       selectedColor: AppColors.primary,
                       backgroundColor: AppColors.white,
                       checkmarkColor: AppColors.white,
+                      side: BorderSide.none,
                       onSelected: (bool selected) {
                         setState(() {
                           if (selected) {
@@ -92,10 +93,10 @@ class _ChooseInterestsState extends State<ChooseInterests> {
                 PrimaryButton(
                     title: "Let's Go",
                     onTap: () {
-                      otpVerificationViewModel.updateUserDetails(
-                          context, _selectedChoices);
-                      // AutoRouter.of(context)
-                      //     .replaceAll([const DashboardRoute()]);
+                      // otpVerificationViewModel.updateUserDetails(
+                      //     context, _selectedChoices);
+                      AutoRouter.of(context)
+                          .replaceAll([const DashboardRoute()]);
                     }),
               ],
             ),

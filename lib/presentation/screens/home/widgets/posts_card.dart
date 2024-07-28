@@ -1,8 +1,14 @@
 part of 'widget_imports.dart';
 
-class PostsCard extends StatelessWidget {
+class PostsCard extends StatefulWidget {
   const PostsCard({super.key});
 
+  @override
+  State<PostsCard> createState() => _PostsCardState();
+}
+
+class _PostsCardState extends State<PostsCard> {
+  bool isLiked = false;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -40,7 +46,7 @@ class PostsCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
-              AppIcons.iconsHat,
+              AppIcons.iconsHatFilled,
               height: 20,
               width: 20,
               color: AppColors.primary,
@@ -79,14 +85,21 @@ class PostsCard extends StatelessWidget {
           child: Row(
             children: [
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    isLiked = !isLiked;
+                  });
+                },
                 icon: Image.asset(
-                  AppIcons.iconsHat,
+                  isLiked == true
+                      ? AppIcons.iconsHatFilled
+                      : AppIcons.iconsHatOutlined,
                   height: 20,
                   width: 20,
                 ),
-                label: const TitleSmall(
+                label: TitleSmall(
                   title: 'Like',
+                  color: isLiked == true ? AppColors.primary : AppColors.black,
                 ),
               ),
               const Spacer(),

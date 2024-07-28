@@ -34,8 +34,29 @@ class _CommunityState extends State<Community> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-      resizeToAvoidBottomInset: true,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const SearchTextField(
+          hintText: 'Search',
+          contentPadding: 8,
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              VxBottomSheet.bottomSheetView(
+                context,
+                isSafeAreaFromBottom: true,
+                backgroundColor: AppColors.white,
+                child: const FiltersSection(),
+              );
+            },
+            icon: Image.asset(
+              AppIcons.iconsTuning,
+              scale: 2,
+            ),
+          ),
+        ],
+      ),
       body: SafeArea(
         child: DefaultTabController(
           length: 2,
@@ -43,22 +64,6 @@ class _CommunityState extends State<Community> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
-                Row(
-                  children: [
-                    const Expanded(
-                      child: SearchTextField(
-                        hintText: 'Search',
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        AppIcons.iconsTuning,
-                        scale: 2,
-                      ),
-                    ),
-                  ],
-                ),
                 AppSizes.gap32Space,
                 ToggleButtons(
                   borderRadius: BorderRadius.circular(18),
@@ -73,10 +78,10 @@ class _CommunityState extends State<Community> {
                     SizedBox(
                       width: 120,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
                           'Community',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 14),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -84,10 +89,10 @@ class _CommunityState extends State<Community> {
                     SizedBox(
                       width: 120,
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                        padding: EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
                           'Peers',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 14),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -251,6 +256,7 @@ class _CommunityState extends State<Community> {
                                 itemBuilder: (context, index) {
                                   return ListTile(
                                     leading: CircleAvatar(
+                                      radius: 20,
                                       backgroundColor:
                                           AppColors.primary.withOpacity(0.1),
                                       child: Image.asset(

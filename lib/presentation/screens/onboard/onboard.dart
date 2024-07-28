@@ -88,18 +88,18 @@ class _OnboardState extends State<Onboard> {
                   child: PageView(
                     controller: onboardViewModel.pageController,
                     children: const [
-                      DisplaySmall(
-                        title: 'Live Interacting with Community',
+                      HeadlineLarge(
+                        title: 'Shaping stars through spark',
                         textAlign: TextAlign.center,
                         fontWeight: FontWeight.w600,
                       ),
-                      DisplaySmall(
-                        title: 'Live Interacting with Community',
+                      HeadlineLarge(
+                        title: 'Where insights spark inspiration',
                         textAlign: TextAlign.center,
                         fontWeight: FontWeight.w600,
                       ),
-                      DisplaySmall(
-                        title: 'Live Interacting with Community',
+                      HeadlineLarge(
+                        title: 'Lighting up the spark in you',
                         textAlign: TextAlign.center,
                         fontWeight: FontWeight.w600,
                       ),
@@ -112,6 +112,7 @@ class _OnboardState extends State<Onboard> {
                   count: 3,
                   effect: const WormEffect(
                     activeDotColor: AppColors.primary,
+                    dotColor: AppColors.grey,
                     dotHeight: 10.0,
                     dotWidth: 10.0,
                   ), // your preferred effect
@@ -124,7 +125,7 @@ class _OnboardState extends State<Onboard> {
                     const AuthRoute(),
                   ),
                 ),
-                AppSizes.verticalSpace,
+                AppSizes.gap32Space,
                 AppRichText(
                   mainText: 'Don’t have an account? ',
                   firstText: "Sign up",
@@ -134,6 +135,7 @@ class _OnboardState extends State<Onboard> {
                           ),
                   onTap: () {},
                 ),
+                AppSizes.gap32Space,
               ],
             ),
           ),

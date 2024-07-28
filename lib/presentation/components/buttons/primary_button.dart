@@ -16,7 +16,7 @@ class PrimaryButton extends StatelessWidget {
   });
 
   final String title;
-  final VoidCallback onTap;
+  final Function()? onTap;
   final double? width;
   final double? height;
   final Color? color;
@@ -34,10 +34,9 @@ class PrimaryButton extends StatelessWidget {
         padding: padding,
         backgroundColor: color ?? AppColors.primary,
         minimumSize:
-            Size(width ?? MediaQuery.sizeOf(context).width, height ?? 44.h),
+            Size(width ?? MediaQuery.sizeOf(context).width, height ?? 47.h),
         shape: RoundedRectangleBorder(
-          side: const BorderSide(color: AppColors.primary),
-          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 16.r),
         ),
       ),
       icon: icon,

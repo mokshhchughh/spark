@@ -85,7 +85,7 @@ class EventsCard extends StatelessWidget {
                     ),
                     AppSizes.gapH8Space,
                     const TitleSmall(
-                      title: 'Radha park, Mambakkam, Chennai',
+                      title: 'Radha park, Chennai',
                       color: AppColors.alphaBlack50,
                       fontWeight: FontWeight.w500,
                     ),

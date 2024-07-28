@@ -30,6 +30,7 @@ class _UserDetailsState extends State<UserDetails> {
 
   void _showDatePicker(BuildContext context) {
     showModalBottomSheet(
+      backgroundColor: AppColors.white,
       context: context,
       builder: (BuildContext builder) {
         return SizedBox(
@@ -70,7 +71,7 @@ class _UserDetailsState extends State<UserDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const DisplaySmall(
+                const HeadlineMedium(
                   title: 'Enter Your Details',
                   fontWeight: FontWeight.bold,
                 ),
@@ -83,8 +84,9 @@ class _UserDetailsState extends State<UserDetails> {
                         PrimaryTextField(
                           fillColor: AppColors.white,
                           prefixIcon: Image.asset(
-                            AppIcons.iconsUserRoundedOutline,
+                            AppIcons.iconsUserRoundedFilled,
                             scale: 2,
+                            color: AppColors.black,
                           ),
                           controller:
                               otpVerificationViewModel.fullNameController,
@@ -101,6 +103,7 @@ class _UserDetailsState extends State<UserDetails> {
                           prefixIcon: Image.asset(
                             AppIcons.iconsCalendar,
                             scale: 2,
+                            color: AppColors.black,
                           ),
                           labelText: 'Date of Birth',
                         ),
@@ -108,8 +111,8 @@ class _UserDetailsState extends State<UserDetails> {
                         DecoratedBox(
                           decoration: BoxDecoration(
                             color: AppColors.white,
-                            border: Border.all(color: AppColors.alphaBlack20),
-                            borderRadius: BorderRadius.circular(8.r),
+                            border: Border.all(color: AppColors.borderColor),
+                            borderRadius: BorderRadius.circular(18.r),
                           ),
                           child: DropdownButton<String>(
                             padding: const EdgeInsets.symmetric(
@@ -117,9 +120,10 @@ class _UserDetailsState extends State<UserDetails> {
                             hint: Row(
                               children: [
                                 Image.asset(
-                                  AppIcons.iconsHat,
+                                  AppIcons.iconsHatFilled,
                                   height: 24,
                                   width: 24,
+                                  color: AppColors.black,
                                 ),
                                 AppSizes.gapH10Space,
                                 const Text('Select Class'),
@@ -155,6 +159,7 @@ class _UserDetailsState extends State<UserDetails> {
                               child: RadioListTile(
                                 contentPadding: EdgeInsets.zero,
                                 dense: true,
+                                activeColor: AppColors.primary,
                                 title: const TitleSmall(title: 'Male'),
                                 value: 'Male',
                                 groupValue: _selectedGender,
@@ -167,6 +172,7 @@ class _UserDetailsState extends State<UserDetails> {
                             ),
                             Expanded(
                               child: RadioListTile(
+                                activeColor: AppColors.primary,
                                 contentPadding: EdgeInsets.zero,
                                 dense: true,
                                 title: const TitleSmall(title: 'Female'),
@@ -181,6 +187,7 @@ class _UserDetailsState extends State<UserDetails> {
                             ),
                             Expanded(
                               child: RadioListTile(
+                                activeColor: AppColors.primary,
                                 contentPadding: EdgeInsets.zero,
                                 dense: true,
                                 title: const TitleSmall(title: 'Others'),
@@ -199,41 +206,13 @@ class _UserDetailsState extends State<UserDetails> {
                     ),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    InkWell(
-                      borderRadius: BorderRadius.circular(100),
-                      onTap: () {
-                        otpVerificationViewModel.addUserDetails(
-                            context, _selectedGender, selectedValue!);
-                        // AutoRouter.of(context)
-                        //     .push(const ChooseInterestsRoute());
-                      },
-                      child: Ink(
-                        height: 80.h,
-                        width: 80.w,
-                        decoration: const BoxDecoration(
-                          color: AppColors.primary,
-                          shape: BoxShape.circle,
-                        ),
-                        child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TitleMedium(
-                              title: 'Next',
-                              color: AppColors.white,
-                            ),
-                            Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16,
-                              color: AppColors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                PrimaryButton(
+                  title: 'Next',
+                  onTap: () {
+                    // otpVerificationViewModel.addUserDetails(
+                    //     context, _selectedGender, selectedValue!);
+                    AutoRouter.of(context).push(const ChooseInterestsRoute());
+                  },
                 ),
               ],
             ),

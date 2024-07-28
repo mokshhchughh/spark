@@ -59,6 +59,7 @@ sealed class AppColors {
   static const Color backgroundColor = Color(0xff242430);
   static const Color darkTextColor = Color(0xff6C6C6C);
   static const Color tabBgColor = Color(0xffF6F6F8);
+  static const Color borderColor = Color(0xffC3C3C3);
 
   // primary
   static const Color primary50 = Color(0xff999999);

@@ -37,6 +37,14 @@ class AppIcons {
   /// assets/icons/hat.png
   static const String iconsHat = "assets/icons/hat.png";
 
+  /// Assets for iconsHatFilled
+  /// assets/icons/hat_filled.png
+  static const String iconsHatFilled = "assets/icons/hat_filled.png";
+
+  /// Assets for iconsHatOutlined
+  /// assets/icons/hat_outlined.png
+  static const String iconsHatOutlined = "assets/icons/hat_outlined.png";
+
   /// Assets for iconsHeart
   /// assets/icons/Heart.png
   static const String iconsHeart = "assets/icons/Heart.png";

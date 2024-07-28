@@ -210,7 +210,7 @@ class _ProfileState extends State<Profile> {
                                       const Spacer(),
                                       index == 1
                                           ? Image.asset(
-                                              AppIcons.iconsTrophySvgrepoCom,
+                                              AppIcons.iconsTrophy,
                                               height: 20,
                                             )
                                           : const SizedBox.shrink(),

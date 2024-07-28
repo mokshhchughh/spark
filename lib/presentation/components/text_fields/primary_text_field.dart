@@ -75,16 +75,16 @@ class PrimaryTextField extends StatelessWidget {
         fillColor: fillColor ?? AppColors.transparent,
         filled: true,
         border: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.alphaBlack20),
-          borderRadius: BorderRadius.circular(8.r),
+          borderSide: const BorderSide(color: AppColors.borderColor),
+          borderRadius: BorderRadius.circular(18.r),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.alphaBlack20),
-          borderRadius: BorderRadius.circular(8.r),
+          borderSide: const BorderSide(color: AppColors.borderColor),
+          borderRadius: BorderRadius.circular(18.r),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: const BorderSide(color: AppColors.alphaBlack70),
-          borderRadius: BorderRadius.circular(8.r),
+          borderSide: const BorderSide(color: AppColors.borderColor),
+          borderRadius: BorderRadius.circular(18.r),
         ),
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,

@@ -36,25 +36,25 @@ class _OtpVerificationState extends State<OtpVerification> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const DisplaySmall(
+                const HeadlineMedium(
                   title: 'Verify OTP',
                   fontWeight: FontWeight.bold,
                 ),
                 TitleMedium(
                     title:
                         'Please enter 6-digit OTP sent to ${widget.mobileNumber}'),
-                AppSizes.verticalSpace,
+                AppSizes.gap24Space,
                 PinFields(
                   obscureText: false,
                   autofocus: true,
-                  borderRadius: 5.r,
+                  borderRadius: 16.r,
                   controller: otpVerificationViewModel._otpController,
                   onTap: () {},
                   onChanged: (value) {},
                   onCompleted: (value) {
-                    // AutoRouter.of(context).push(const UserDetailsRoute());
-                    otpVerificationViewModel.signInWithPhoneNumber(
-                        widget.verificationId, context);
+                    AutoRouter.of(context).push(const UserDetailsRoute());
+                    // otpVerificationViewModel.signInWithPhoneNumber(
+                    //     widget.verificationId, context);
                   },
                 ),
               ],

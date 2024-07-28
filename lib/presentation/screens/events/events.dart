@@ -20,49 +20,38 @@ class _EventsState extends State<Events> {
       ),
       child: Scaffold(
         backgroundColor: AppColors.transparent,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    const Expanded(
-                      child: SearchTextField(
-                        hintText: 'Search',
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        VxBottomSheet.bottomSheetView(
-                          context,
-                          isSafeAreaFromBottom: true,
-                          backgroundColor: AppColors.white,
-                          child: const FiltersSection(),
-                        );
-                      },
-                      icon: Image.asset(
-                        AppIcons.iconsTuning,
-                        scale: 2,
-                      ),
-                    ),
-                  ],
-                ),
-                AppSizes.verticalSpace,
-                Expanded(
-                  child: ListView.separated(
-                    itemCount: 3,
-                    shrinkWrap: true,
-                    separatorBuilder: (_, __) => AppSizes.verticalSpace,
-                    itemBuilder: (context, index) {
-                      return const EventsCard();
-                    },
-                  ),
-                ),
-                AppSizes.verticalSpace,
-              ],
-            ),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: AppColors.transparent,
+          title: const SearchTextField(
+            hintText: 'Search',
+            contentPadding: 8,
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                VxBottomSheet.bottomSheetView(
+                  context,
+                  isSafeAreaFromBottom: true,
+                  backgroundColor: AppColors.white,
+                  child: const FiltersSection(),
+                );
+              },
+              icon: Image.asset(
+                AppIcons.iconsTuning,
+                scale: 2,
+              ),
+            ),
+          ],
+        ),
+        body: ListView.separated(
+          padding: AppPaddings.appPadding,
+          itemCount: 3,
+          shrinkWrap: true,
+          separatorBuilder: (_, __) => AppSizes.verticalSpace,
+          itemBuilder: (context, index) {
+            return const EventsCard();
+          },
         ),
       ),
     );

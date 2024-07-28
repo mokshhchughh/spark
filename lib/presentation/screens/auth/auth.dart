@@ -10,6 +10,7 @@ class Auth extends StatefulWidget {
 
 class _AuthState extends State<Auth> {
   AuthViewModel authViewModel = AuthViewModel();
+  String mobileNumber = '';
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -30,12 +31,12 @@ class _AuthState extends State<Auth> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const DisplaySmall(
+                const HeadlineMedium(
                   title: 'Mobile Number',
                   fontWeight: FontWeight.bold,
                 ),
                 const TitleMedium(title: 'Please enter 10-digit mobile number'),
-                AppSizes.gap12Space,
+                AppSizes.gap24Space,
                 Row(
                   children: [
                     CountryCodePicker(
@@ -51,10 +52,15 @@ class _AuthState extends State<Auth> {
                       alignLeft: false,
                     ),
                     PrimaryTextField(
-                            fillColor: AppColors.white,
-                            controller: authViewModel._phoneController,
-                            keyboardType: TextInputType.number)
-                        .expand(),
+                      fillColor: AppColors.white,
+                      controller: authViewModel._phoneController,
+                      keyboardType: TextInputType.number,
+                      onChanged: (p0) {
+                        setState(() {
+                          mobileNumber = p0;
+                        });
+                      },
+                    ).expand(),
                   ],
                 ),
                 const Spacer(),
@@ -64,12 +70,15 @@ class _AuthState extends State<Auth> {
                     return PrimaryButton(
                       title: 'Send OTP',
                       isLoading: state.data,
-                      onTap: () {
-                        // AutoRouter.of(context).push(OtpVerificationRoute(
-                        //     verificationId: '1',
-                        //     mobileNumber: '3454543534353'));
-                        authViewModel.verifyPhoneNumber(context);
-                      },
+                      onTap: mobileNumber.isNotEmptyAndNotNull
+                          ? () {
+                              AutoRouter.of(context).push(OtpVerificationRoute(
+                                  verificationId: '1',
+                                  mobileNumber: '3454543534353'));
+
+                              // authViewModel.verifyPhoneNumber(context);
+                            }
+                          : null,
                     );
                   },
                 ),
