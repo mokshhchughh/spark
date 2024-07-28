@@ -27,7 +27,7 @@ import 'package:career_growth/presentation/screens/profile/profile_imports.dart'
     as _i8;
 import 'package:career_growth/presentation/screens/splash/splash_imports.dart'
     as _i9;
-import 'package:flutter/material.dart' as _i11;
+import 'package:flutter/cupertino.dart' as _i11;
 
 abstract class $AppRouter extends _i10.RootStackRouter {
   $AppRouter({super.navigatorKey});
@@ -70,10 +70,22 @@ abstract class $AppRouter extends _i10.RootStackRouter {
         child: const _i6.Home(),
       );
     },
-    HomeDetailsRoute.name: (routeData) {
+    HomeDetailsEventsRoute.name: (routeData) {
       return _i10.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.HomeDetails(),
+        child: const _i6.HomeDetailsEvents(),
+      );
+    },
+    HomeDetailsGiveawayRoute.name: (routeData) {
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i6.HomeDetailsGiveaway(),
+      );
+    },
+    HomeDetailsScholarshipRoute.name: (routeData) {
+      return _i10.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i6.HomeDetailsScholarship(),
       );
     },
     OnboardRoute.name: (routeData) {
@@ -199,15 +211,43 @@ class HomeRoute extends _i10.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.HomeDetails]
-class HomeDetailsRoute extends _i10.PageRouteInfo<void> {
-  const HomeDetailsRoute({List<_i10.PageRouteInfo>? children})
+/// [_i6.HomeDetailsEvents]
+class HomeDetailsEventsRoute extends _i10.PageRouteInfo<void> {
+  const HomeDetailsEventsRoute({List<_i10.PageRouteInfo>? children})
       : super(
-          HomeDetailsRoute.name,
+          HomeDetailsEventsRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomeDetailsRoute';
+  static const String name = 'HomeDetailsEventsRoute';
+
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.HomeDetailsGiveaway]
+class HomeDetailsGiveawayRoute extends _i10.PageRouteInfo<void> {
+  const HomeDetailsGiveawayRoute({List<_i10.PageRouteInfo>? children})
+      : super(
+          HomeDetailsGiveawayRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeDetailsGiveawayRoute';
+
+  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.HomeDetailsScholarship]
+class HomeDetailsScholarshipRoute extends _i10.PageRouteInfo<void> {
+  const HomeDetailsScholarshipRoute({List<_i10.PageRouteInfo>? children})
+      : super(
+          HomeDetailsScholarshipRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeDetailsScholarshipRoute';
 
   static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
 }

@@ -66,28 +66,40 @@ class _HomeState extends State<Home> {
               ).pSymmetric(h: 16),
               AppSizes.verticalSpace,
               SizedBox(
-                height: 120,
+                height: 153,
                 child: PageView(
                   controller: homeViewModel.pageController,
                   children: List.generate(
                     3,
                     (index) {
-                      return Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 16),
-                        padding: const EdgeInsets.all(16),
-                        height: 120,
-                        decoration: BoxDecoration(
-                          color: const Color(0xffDFB6FF),
-                          borderRadius: BorderRadius.circular(38),
-                        ),
-                        child: TitleLarge(
-                          title: index == 0
-                              ? 'Giveaways'
+                      return GestureDetector(
+                        onTap: () {
+                          index == 0
+                              ? AutoRouter.of(context)
+                                  .push(const HomeDetailsGiveawayRoute())
                               : index == 1
-                                  ? 'Scholarship'
-                                  : 'Today\'s Events',
-                          fontWeight: FontWeight.bold,
-                          color: const Color(0xff8F00FF),
+                                  ? AutoRouter.of(context)
+                                      .push(const HomeDetailsScholarshipRoute())
+                                  : AutoRouter.of(context)
+                                      .push(const HomeDetailsEventsRoute());
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 16),
+                          padding: const EdgeInsets.all(16),
+                          height: 120,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffDFB6FF),
+                            borderRadius: BorderRadius.circular(42),
+                          ),
+                          child: TitleLarge(
+                            title: index == 0
+                                ? 'Giveaways'
+                                : index == 1
+                                    ? 'Scholarships'
+                                    : 'Today\'s Events',
+                            fontWeight: FontWeight.bold,
+                            color: const Color(0xff8F00FF),
+                          ),
                         ),
                       );
                     },
@@ -101,6 +113,7 @@ class _HomeState extends State<Home> {
                   count: 3,
                   effect: const WormEffect(
                     activeDotColor: AppColors.primary,
+                    dotColor: AppColors.grey,
                     dotHeight: 10.0,
                     dotWidth: 10.0,
                   ), // your preferred effect

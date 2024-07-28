@@ -58,11 +58,11 @@ class SearchTextField extends StatelessWidget {
         filled: true,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 18.r),
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(borderRadius ?? 8.r),
+          borderRadius: BorderRadius.circular(borderRadius ?? 18.r),
         ),
         prefixIcon: Image.asset(
           AppIcons.iconsMinimalisticMagnifer,

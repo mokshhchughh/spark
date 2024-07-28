@@ -7,7 +7,7 @@ class ProfileViewModel {
   final VelocityBloc<Map<String, dynamic>?> userDeatils =
       VelocityBloc<Map<String, dynamic>?>(null);
 
-  getUserDeails() async {
+  getUserDetails() async {
     User? user = _auth.currentUser;
     if (user != null) {
       DocumentSnapshot userDoc =

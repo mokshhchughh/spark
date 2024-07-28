@@ -54,7 +54,15 @@ class AppRouter extends $AppRouter {
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         CustomRoute(
-          page: HomeDetailsRoute.page,
+          page: HomeDetailsEventsRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: HomeDetailsGiveawayRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: HomeDetailsScholarshipRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
       ];

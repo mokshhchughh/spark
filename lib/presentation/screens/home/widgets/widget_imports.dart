@@ -9,3 +9,4 @@ import '../../../components/typography/typography_imports.dart';
 
 part 'posts_card.dart';
 part 'second_posts_card.dart';
+part 'details_app_bar.dart';

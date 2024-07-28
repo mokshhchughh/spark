@@ -59,6 +59,7 @@ class _EventsState extends State<Events> {
                     },
                   ),
                 ),
+                AppSizes.verticalSpace,
               ],
             ),
           ),

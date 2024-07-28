@@ -57,7 +57,7 @@ sealed class AppColors {
   static const Color secondDividerColor = Color(0xffD8D8D8);
   static const Color darkColor = Color(0xff1E1E28);
   static const Color backgroundColor = Color(0xff242430);
-  static const Color darkTextColor = Color(0xff6b717e);
+  static const Color darkTextColor = Color(0xff6C6C6C);
   static const Color tabBgColor = Color(0xffF6F6F8);
 
   // primary
