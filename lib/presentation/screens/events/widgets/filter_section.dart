@@ -1,36 +1,15 @@
 part of 'widget_imports.dart';
 
 class FiltersSection extends StatefulWidget {
-  const FiltersSection({super.key});
+  const FiltersSection({super.key, required this.eventsViewModel});
+
+  final EventsViewModel eventsViewModel;
 
   @override
   State<FiltersSection> createState() => _FiltersSectionState();
 }
 
 class _FiltersSectionState extends State<FiltersSection> {
-  final List<String> _choices = [
-    'Tech',
-    'Arts',
-    'Sports',
-    'Singing',
-    'Dancing',
-    'Finance',
-    'Entrepreneur',
-    'Poetry',
-    'Graphic',
-    'Marketing',
-    'Speaking',
-    'Soft Skills',
-    'Music',
-    'Movies',
-    'Books',
-    'Travel',
-    'Food',
-    'Fitness',
-    'Gaming',
-  ];
-  final List<String> _selectedChoices = [];
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -47,31 +26,41 @@ class _FiltersSectionState extends State<FiltersSection> {
           shape: const RoundedRectangleBorder(),
           title: const TitleMedium(title: 'Interests'),
           children: [
-            Wrap(
-              spacing: 16.0,
-              children: _choices.map((choice) {
-                return ChoiceChip(
-                  label: TitleSmall(
-                      title: choice,
-                      color: _selectedChoices.contains(choice)
-                          ? AppColors.white
-                          : AppColors.black),
-                  selected: _selectedChoices.contains(choice),
-                  selectedColor: AppColors.primary,
-                  backgroundColor: AppColors.white,
-                  checkmarkColor: AppColors.white,
-                  onSelected: (bool selected) {
-                    setState(() {
-                      if (selected) {
-                        _selectedChoices.add(choice);
-                      } else {
-                        _selectedChoices.remove(choice);
-                      }
-                    });
-                  },
-                  elevation: 4.0,
+            BlocBuilder<VelocityBloc<List<String>>,
+                VelocityState<List<String>>>(
+              bloc: widget.eventsViewModel.selectedChoicesBloc,
+              builder: (context, state) {
+                return Wrap(
+                  spacing: 16.0,
+                  children: widget.eventsViewModel.choices.map((choice) {
+                    return ChoiceChip(
+                      label: TitleSmall(
+                          title: choice,
+                          color: state.data.contains(choice)
+                              ? AppColors.white
+                              : AppColors.black),
+                      selected: state.data.contains(choice),
+                      selectedColor: AppColors.primary,
+                      backgroundColor: AppColors.white,
+                      checkmarkColor: AppColors.white,
+                      onSelected: (bool selected) {
+                        setState(() {
+                          if (selected) {
+                            state.data.add(choice);
+                            widget.eventsViewModel
+                                .getEvents(categories: state.data);
+                          } else {
+                            state.data.remove(choice);
+                            widget.eventsViewModel
+                                .getEvents(categories: state.data);
+                          }
+                        });
+                      },
+                      elevation: 4.0,
+                    );
+                  }).toList(),
                 );
-              }).toList(),
+              },
             ),
           ],
         ),

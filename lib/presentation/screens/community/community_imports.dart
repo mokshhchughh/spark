@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:career_growth/presentation/screens/events/events_imports.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 

@@ -84,7 +84,7 @@ class _UserDetailsState extends State<UserDetails> {
                         PrimaryTextField(
                           fillColor: AppColors.white,
                           prefixIcon: Image.asset(
-                            AppIcons.iconsUserRoundedFilled,
+                            AppIcons.iconsUserRoundedOutline,
                             scale: 2,
                             color: AppColors.black,
                           ),
@@ -102,7 +102,7 @@ class _UserDetailsState extends State<UserDetails> {
                           controller: otpVerificationViewModel.dateController,
                           prefixIcon: Image.asset(
                             AppIcons.iconsCalendar,
-                            scale: 2,
+                            scale: 1.8,
                             color: AppColors.black,
                           ),
                           labelText: 'Date of Birth',
@@ -120,7 +120,7 @@ class _UserDetailsState extends State<UserDetails> {
                             hint: Row(
                               children: [
                                 Image.asset(
-                                  AppIcons.iconsHatFilled,
+                                  AppIcons.iconsHatOutlined,
                                   height: 24,
                                   width: 24,
                                   color: AppColors.black,

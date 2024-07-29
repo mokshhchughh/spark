@@ -89,17 +89,17 @@ class _OnboardState extends State<Onboard> {
                     controller: onboardViewModel.pageController,
                     children: const [
                       HeadlineLarge(
-                        title: 'Shaping stars through spark',
+                        title: 'Shaping stars\nthrough spark',
                         textAlign: TextAlign.center,
                         fontWeight: FontWeight.w600,
                       ),
                       HeadlineLarge(
-                        title: 'Where insights spark inspiration',
+                        title: 'Where insights\nspark inspiration',
                         textAlign: TextAlign.center,
                         fontWeight: FontWeight.w600,
                       ),
                       HeadlineLarge(
-                        title: 'Lighting up the spark in you',
+                        title: 'Lighting up the\nspark in you',
                         textAlign: TextAlign.center,
                         fontWeight: FontWeight.w600,
                       ),

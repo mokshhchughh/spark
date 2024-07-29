@@ -9,6 +9,14 @@ class Events extends StatefulWidget {
 }
 
 class _EventsState extends State<Events> {
+  final EventsViewModel _eventsViewModel = EventsViewModel();
+
+  @override
+  void initState() {
+    _eventsViewModel.getEvents();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -23,9 +31,13 @@ class _EventsState extends State<Events> {
         appBar: AppBar(
           automaticallyImplyLeading: false,
           backgroundColor: AppColors.transparent,
-          title: const SearchTextField(
+          title: SearchTextField(
             hintText: 'Search',
             contentPadding: 8,
+            controller: _eventsViewModel._searchController,
+            onChanged: (value) {
+              _eventsViewModel.getEvents(query: value);
+            },
           ),
           actions: [
             IconButton(
@@ -34,7 +46,9 @@ class _EventsState extends State<Events> {
                   context,
                   isSafeAreaFromBottom: true,
                   backgroundColor: AppColors.white,
-                  child: const FiltersSection(),
+                  child: FiltersSection(
+                    eventsViewModel: _eventsViewModel,
+                  ),
                 );
               },
               icon: Image.asset(
@@ -44,13 +58,39 @@ class _EventsState extends State<Events> {
             ),
           ],
         ),
-        body: ListView.separated(
-          padding: AppPaddings.appPadding,
-          itemCount: 3,
-          shrinkWrap: true,
-          separatorBuilder: (_, __) => AppSizes.verticalSpace,
-          itemBuilder: (context, index) {
-            return const EventsCard();
+        body: BlocBuilder<VelocityBloc<List<EventsModel>>,
+            VelocityState<List<EventsModel>>>(
+          bloc: _eventsViewModel.eventsBloc,
+          builder: (context, state) {
+            if (state is VelocityInitialState) {
+              return const Center(
+                child: CircularProgressIndicator.adaptive(),
+              );
+            } else if (state is VelocityFailedState) {
+              return const Center(
+                child: Text('Failed'),
+              );
+            } else if (state is VelocityUpdateState) {
+              return RefreshIndicator(
+                onRefresh: () async {
+                  _eventsViewModel.getEvents();
+                },
+                child: ListView.separated(
+                  padding: AppPaddings.appPadding,
+                  itemCount: state.data.length,
+                  shrinkWrap: true,
+                  separatorBuilder: (_, __) => AppSizes.verticalSpace,
+                  itemBuilder: (context, index) {
+                    var event = state.data[index];
+                    return EventsCard(
+                      eventsModel: event,
+                    );
+                  },
+                ),
+              );
+            } else {
+              return const SizedBox.shrink();
+            }
           },
         ),
       ),

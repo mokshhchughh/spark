@@ -47,7 +47,9 @@ class _CommunityState extends State<Community> {
                 context,
                 isSafeAreaFromBottom: true,
                 backgroundColor: AppColors.white,
-                child: const FiltersSection(),
+                child: FiltersSection(
+                  eventsViewModel: EventsViewModel(),
+                ),
               );
             },
             icon: Image.asset(
@@ -119,7 +121,7 @@ class _CommunityState extends State<Community> {
                             collapsedBackgroundColor: AppColors.white,
                             shape: RoundedRectangleBorder(
                                 side: const BorderSide(
-                                  color: AppColors.alphaBlack40,
+                                  color: AppColors.grey300,
                                 ),
                                 borderRadius: BorderRadius.circular(18)),
                             collapsedShape: RoundedRectangleBorder(
@@ -195,7 +197,7 @@ class _CommunityState extends State<Community> {
                             collapsedBackgroundColor: AppColors.white,
                             shape: RoundedRectangleBorder(
                                 side: const BorderSide(
-                                  color: AppColors.alphaBlack40,
+                                  color: AppColors.grey300,
                                 ),
                                 borderRadius: BorderRadius.circular(18)),
                             collapsedShape: RoundedRectangleBorder(
@@ -237,7 +239,7 @@ class _CommunityState extends State<Community> {
                             collapsedBackgroundColor: AppColors.white,
                             shape: RoundedRectangleBorder(
                                 side: const BorderSide(
-                                  color: AppColors.alphaBlack40,
+                                  color: AppColors.grey300,
                                 ),
                                 borderRadius: BorderRadius.circular(20)),
                             collapsedShape: RoundedRectangleBorder(
@@ -262,11 +264,11 @@ class _CommunityState extends State<Community> {
                                       child: Image.asset(
                                         scale: 2,
                                         AppIcons.iconsUsersGroupRoundedFilled,
+                                        color: AppColors.primary,
                                       ),
                                     ),
                                     title: const TitleMedium(
                                       title: "Spark: The Career Growth App",
-                                      fontWeight: FontWeight.w600,
                                     ),
                                     subtitle: const TitleSmall(
                                       title: 'Moksh: icons for profile page',

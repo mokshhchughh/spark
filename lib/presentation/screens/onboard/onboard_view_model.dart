@@ -5,7 +5,7 @@ class OnboardViewModel {
   Timer? _timer;
 
   void startAutoScroll() {
-    _timer = Timer.periodic(const Duration(seconds: 2), (Timer timer) {
+    _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       if (pageController.page!.round() == 2) {
         pageController.jumpToPage(0);
       } else {

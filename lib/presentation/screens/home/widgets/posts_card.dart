@@ -98,7 +98,7 @@ class _PostsCardState extends State<PostsCard> {
                   width: 20,
                 ),
                 label: TitleSmall(
-                  title: 'Like',
+                  title: isLiked == true ? 'Liked' : 'Like',
                   color: isLiked == true ? AppColors.primary : AppColors.black,
                 ),
               ),

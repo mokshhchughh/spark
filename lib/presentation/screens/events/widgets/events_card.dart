@@ -1,7 +1,9 @@
 part of 'widget_imports.dart';
 
 class EventsCard extends StatelessWidget {
-  const EventsCard({super.key});
+  const EventsCard({super.key, required this.eventsModel});
+
+  final EventsModel eventsModel;
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,8 @@ class EventsCard extends StatelessWidget {
                   topLeft: Radius.circular(22),
                   topRight: Radius.circular(22),
                 ),
-                child: Image.asset(
-                  AppIcons.iconsEvent,
+                child: Image.network(
+                  eventsModel.eventsImage,
                   height: 173.h,
                   width: 1.sw,
                   fit: BoxFit.cover,
@@ -37,16 +39,16 @@ class EventsCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppColors.white,
                       borderRadius: BorderRadius.circular(16)),
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TitleLarge(
-                        title: '24',
+                        title: eventsModel.formattedDate,
                         color: AppColors.darkTextColor,
                         fontWeight: FontWeight.w500,
                       ),
                       TitleMedium(
-                        title: 'May',
+                        title: eventsModel.formattedMonth.substring(0, 3),
                         color: AppColors.darkTextColor,
                         fontWeight: FontWeight.w500,
                       ),
@@ -61,15 +63,15 @@ class EventsCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     TitleMedium(
-                      title: 'Cooking and baking classes',
+                      title: eventsModel.name,
                       fontWeight: FontWeight.bold,
                     ),
                     TitleMedium(
-                      title: '11:00 AM',
+                      title: eventsModel.formattedTime,
                       color: AppColors.darkTextColor,
                       fontWeight: FontWeight.w500,
                     ),
@@ -84,10 +86,15 @@ class EventsCard extends StatelessWidget {
                       scale: 1.8,
                     ),
                     AppSizes.gapH8Space,
-                    const TitleSmall(
-                      title: 'Radha park, Chennai',
-                      color: AppColors.alphaBlack50,
-                      fontWeight: FontWeight.w500,
+                    SizedBox(
+                      width: 0.5.sw,
+                      child: TitleSmall(
+                        title: eventsModel.locationName,
+                        color: AppColors.alphaBlack50,
+                        fontWeight: FontWeight.w500,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                     const Spacer(),
                     Image.asset(
@@ -95,8 +102,8 @@ class EventsCard extends StatelessWidget {
                       scale: 1.4,
                     ),
                     AppSizes.gapH8Space,
-                    const TitleSmall(
-                      title: 'By Pushkar',
+                    TitleSmall(
+                      title: 'By ${eventsModel.host}',
                       color: AppColors.alphaBlack50,
                       fontWeight: FontWeight.w500,
                     ),
