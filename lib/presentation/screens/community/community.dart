@@ -267,8 +267,13 @@ class _CommunityState extends State<Community> {
                                         color: AppColors.primary,
                                       ),
                                     ),
-                                    title: const TitleMedium(
-                                      title: "Spark: The Career Growth App",
+                                    title: const SizedBox(
+                                      width: 200,
+                                      child: TitleMedium(
+                                        title: "Spark: The Career Growth App",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
                                     subtitle: const TitleSmall(
                                       title: 'Moksh: icons for profile page',

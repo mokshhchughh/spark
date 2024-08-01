@@ -5,3 +5,4 @@ import '../../../../../core/constants/app_colors.dart';
 import '../typography/typography_imports.dart';
 
 part 'primary_button.dart';
+part 'secondary_button.dart';

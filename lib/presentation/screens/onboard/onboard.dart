@@ -125,15 +125,20 @@ class _OnboardState extends State<Onboard> {
                     const AuthRoute(),
                   ),
                 ),
+                AppSizes.gap12Space,
+                SecondaryButton(
+                  title: "Admin Section",
+                  onTap: () => AutoRouter.of(context).push(
+                    const AdminSectionRoute(),
+                  ),
+                ),
                 AppSizes.gap32Space,
-                AppRichText(
-                  mainText: 'Don’t have an account? ',
-                  firstText: "Sign up",
-                  firstTextStyle:
-                      Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                  onTap: () {},
+                TextButton(
+                  onPressed: () {
+                    AutoRouter.of(context).push(const AuthRoute());
+                  },
+                  child:
+                      const BodySmall(title: "Don’t have an account? Sign up"),
                 ),
                 AppSizes.gap32Space,
               ],

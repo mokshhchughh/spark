@@ -1,7 +1,10 @@
 part of 'widget_imports.dart';
 
 class PostsCard extends StatefulWidget {
-  const PostsCard({super.key});
+  const PostsCard({super.key, required this.homeViewModel, required this.post});
+
+  final HomeViewModel homeViewModel;
+  final Post post;
 
   @override
   State<PostsCard> createState() => _PostsCardState();
@@ -9,9 +12,23 @@ class PostsCard extends StatefulWidget {
 
 class _PostsCardState extends State<PostsCard> {
   bool isLiked = false;
+  int likesCount = 0;
+
+  @override
+  void initState() {
+    likesCount = widget.post.postLikes;
+    super.initState();
+  }
+
+  Future<void> _handleToggleLike(String postId) async {
+    await widget.homeViewModel.toggleLikePost(postId);
+    widget.homeViewModel.getPosts();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
@@ -20,15 +37,15 @@ class _PostsCardState extends State<PostsCard> {
               backgroundImage: AssetImage(AppIcons.iconsUser1),
             ),
             AppSizes.gapH8Space,
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TitleMedium(
-                  title: 'User Full Name',
+                  title: widget.post.postAuthor,
                   fontWeight: FontWeight.w600,
                 ),
-                TitleSmall(
-                  title: 'Designation',
+                const TitleSmall(
+                  title: 'Mentor',
                   color: AppColors.alphaBlack50,
                 ),
               ],
@@ -36,9 +53,10 @@ class _PostsCardState extends State<PostsCard> {
           ],
         ),
         AppSizes.gap12Space,
-        const TitleSmall(
-          title: AppConstants.appDummyText,
+        TitleSmall(
+          title: widget.post.postDescription,
           maxLines: 2,
+          textAlign: TextAlign.left,
           overflow: TextOverflow.ellipsis,
         ),
         AppSizes.gap12Space,
@@ -66,12 +84,19 @@ class _PostsCardState extends State<PostsCard> {
               color: AppColors.warning400,
             ),
             AppSizes.gapH4Space,
-            const TitleSmall(
-              title: '60',
+            TitleSmall(
+              title: likesCount.toString(),
             ),
+
+            //     BlocBuilder<VelocityBloc<List<int>>, VelocityState<List<int>>>(
+            //   bloc: widget.homeViewModel.likesCountBloc,
+            //   builder: (context, state) {
+            //     return ;
+            //   },
+            // ),
             const Spacer(),
-            const TitleSmall(
-              title: '10 Comments',
+            TitleSmall(
+              title: '${widget.post.postComments} Comments',
             ),
           ],
         ),
@@ -86,9 +111,15 @@ class _PostsCardState extends State<PostsCard> {
             children: [
               TextButton.icon(
                 onPressed: () {
+                  _handleToggleLike(widget.post.id);
                   setState(() {
                     isLiked = !isLiked;
                   });
+                  if (isLiked == true) {
+                    likesCount = likesCount + 1;
+                  } else {
+                    likesCount = likesCount - 1;
+                  }
                 },
                 icon: Image.asset(
                   isLiked == true

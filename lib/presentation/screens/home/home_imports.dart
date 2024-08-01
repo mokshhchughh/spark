@@ -8,6 +8,8 @@ import 'package:career_growth/presentation/components/typography/typography_impo
 import 'package:career_growth/presentation/routes/router_imports.gr.dart';
 import 'package:career_growth/presentation/screens/events/events_model.dart';
 import 'package:career_growth/presentation/screens/events/widgets/widget_imports.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -18,6 +20,7 @@ import '../../../core/constants/app_icons.dart';
 import '../../../core/constants/app_paddings.dart';
 import '../../../core/constants/app_sizes.dart';
 import '../events/events_imports.dart';
+import 'home_model.dart';
 import 'widgets/widget_imports.dart';
 
 part 'home.dart';

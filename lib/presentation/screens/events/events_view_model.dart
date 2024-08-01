@@ -6,6 +6,8 @@ class EventsViewModel {
   final VelocityBloc<List<EventsModel>> eventsBloc =
       VelocityBloc<List<EventsModel>>([]);
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   final TextEditingController _searchController = TextEditingController();
 
   final List<String> choices = [
@@ -34,6 +36,8 @@ class EventsViewModel {
       VelocityBloc<List<String>>([]);
 
   void getEvents({String? query, List<String>? categories}) async {
+    List<String> interests = await getUserInterests(_auth.currentUser!.uid);
+
     Query<Map<String, dynamic>> eventsQuery = _firestore.collection('events');
 
     if (query != null && query.isNotEmpty) {
@@ -42,16 +46,50 @@ class EventsViewModel {
           .where('eventsName', isLessThanOrEqualTo: '$query\uf8ff');
     }
 
+    // List to hold all futures
+    List<Future<QuerySnapshot<Map<String, dynamic>>>> futures = [];
+
+    // Add futures for category queries
     if (categories != null && categories.isNotEmpty) {
-      eventsQuery =
-          eventsQuery.where('eventsCategory', arrayContainsAny: categories);
+      for (var category in categories) {
+        var categoryQuery =
+            eventsQuery.where('eventsCategory', arrayContains: category);
+        futures.add(categoryQuery.get());
+      }
     }
 
-    var snapshots = await eventsQuery.get();
-    var events = snapshots.docs
-        .map((doc) => EventsModel.fromFirestore(doc.data(), doc.id))
-        .toList();
+    // Add futures for interest queries
+    for (var interest in interests) {
+      var interestQuery =
+          eventsQuery.where('eventsCategory', arrayContains: interest);
+      futures.add(interestQuery.get());
+    }
+
+    // Await all futures
+    List<QuerySnapshot<Map<String, dynamic>>> snapshotsList =
+        await Future.wait(futures);
+
+    // Merge results from different queries
+    var eventsSet = <String>{}; // Using a set to avoid duplicates
+    var events = <EventsModel>[];
+
+    for (var snapshots in snapshotsList) {
+      for (var doc in snapshots.docs) {
+        if (!eventsSet.contains(doc.id)) {
+          eventsSet.add(doc.id);
+          events.add(EventsModel.fromFirestore(doc.data(), doc.id));
+        }
+      }
+    }
+
     eventsBloc.onUpdateData(events);
+  }
+
+  Future<List<String>> getUserInterests(String uid) async {
+    DocumentSnapshot userDoc =
+        await _firestore.collection('users').doc(uid).get();
+    List<String> interests = List.from(userDoc['interests']);
+    return interests;
   }
 
   void getTodayEvents() async {

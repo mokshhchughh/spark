@@ -8,97 +8,128 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i10;
-import 'package:career_growth/presentation/screens/auth/auth_imports.dart'
+import 'package:auto_route/auto_route.dart' as _i14;
+import 'package:career_growth/presentation/screens/add_events/add_events_imports.dart'
     as _i1;
-import 'package:career_growth/presentation/screens/community/community_imports.dart'
-    as _i3;
-import 'package:career_growth/presentation/screens/dashboard/dashboard_imports.dart'
-    as _i4;
-import 'package:career_growth/presentation/screens/events/events_imports.dart'
-    as _i5;
-import 'package:career_growth/presentation/screens/home/home_imports.dart'
-    as _i6;
-import 'package:career_growth/presentation/screens/onboard/onboard_imports.dart'
-    as _i7;
-import 'package:career_growth/presentation/screens/otp_verification/otp_verification_imports.dart'
+import 'package:career_growth/presentation/screens/add_post/add_post_imports.dart'
     as _i2;
-import 'package:career_growth/presentation/screens/profile/profile_imports.dart'
+import 'package:career_growth/presentation/screens/add_trophies/add_trophies_imports.dart'
+    as _i3;
+import 'package:career_growth/presentation/screens/admin_section.dart' as _i4;
+import 'package:career_growth/presentation/screens/auth/auth_imports.dart'
+    as _i5;
+import 'package:career_growth/presentation/screens/community/community_imports.dart'
+    as _i7;
+import 'package:career_growth/presentation/screens/dashboard/dashboard_imports.dart'
     as _i8;
-import 'package:career_growth/presentation/screens/splash/splash_imports.dart'
+import 'package:career_growth/presentation/screens/events/events_imports.dart'
     as _i9;
-import 'package:flutter/cupertino.dart' as _i11;
+import 'package:career_growth/presentation/screens/home/home_imports.dart'
+    as _i10;
+import 'package:career_growth/presentation/screens/onboard/onboard_imports.dart'
+    as _i11;
+import 'package:career_growth/presentation/screens/otp_verification/otp_verification_imports.dart'
+    as _i6;
+import 'package:career_growth/presentation/screens/profile/profile_imports.dart'
+    as _i12;
+import 'package:career_growth/presentation/screens/splash/splash_imports.dart'
+    as _i13;
+import 'package:flutter/cupertino.dart' as _i15;
 
-abstract class $AppRouter extends _i10.RootStackRouter {
+abstract class $AppRouter extends _i14.RootStackRouter {
   $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i10.PageFactory> pagesMap = {
-    AuthRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+  final Map<String, _i14.PageFactory> pagesMap = {
+    AddEventsRoute.name: (routeData) {
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.Auth(),
+        child: const _i1.AddEvents(),
+      );
+    },
+    AddPostRoute.name: (routeData) {
+      return _i14.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.AddPost(),
+      );
+    },
+    AddTrophiesRoute.name: (routeData) {
+      return _i14.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.AddTrophies(),
+      );
+    },
+    AdminSectionRoute.name: (routeData) {
+      return _i14.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i4.AdminSection(),
+      );
+    },
+    AuthRoute.name: (routeData) {
+      return _i14.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i5.Auth(),
       );
     },
     ChooseInterestsRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.ChooseInterests(),
+        child: const _i6.ChooseInterests(),
       );
     },
     CommunityRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.Community(),
+        child: const _i7.Community(),
       );
     },
     DashboardRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.Dashboard(),
+        child: const _i8.Dashboard(),
       );
     },
     EventsRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.Events(),
+        child: const _i9.Events(),
       );
     },
     HomeRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.Home(),
+        child: const _i10.Home(),
       );
     },
     HomeDetailsEventsRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.HomeDetailsEvents(),
+        child: const _i10.HomeDetailsEvents(),
       );
     },
     HomeDetailsGiveawayRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.HomeDetailsGiveaway(),
+        child: const _i10.HomeDetailsGiveaway(),
       );
     },
     HomeDetailsScholarshipRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.HomeDetailsScholarship(),
+        child: const _i10.HomeDetailsScholarship(),
       );
     },
     OnboardRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i7.Onboard(),
+        child: const _i11.Onboard(),
       );
     },
     OtpVerificationRoute.name: (routeData) {
       final args = routeData.argsAs<OtpVerificationRouteArgs>();
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.OtpVerification(
+        child: _i6.OtpVerification(
           key: args.key,
           verificationId: args.verificationId,
           mobileNumber: args.mobileNumber,
@@ -106,30 +137,86 @@ abstract class $AppRouter extends _i10.RootStackRouter {
       );
     },
     ProfileRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.Profile(),
+        child: const _i12.Profile(),
       );
     },
     SplashRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i9.Splash(),
+        child: const _i13.Splash(),
       );
     },
     UserDetailsRoute.name: (routeData) {
-      return _i10.AutoRoutePage<dynamic>(
+      return _i14.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.UserDetails(),
+        child: const _i6.UserDetails(),
       );
     },
   };
 }
 
 /// generated route for
-/// [_i1.Auth]
-class AuthRoute extends _i10.PageRouteInfo<void> {
-  const AuthRoute({List<_i10.PageRouteInfo>? children})
+/// [_i1.AddEvents]
+class AddEventsRoute extends _i14.PageRouteInfo<void> {
+  const AddEventsRoute({List<_i14.PageRouteInfo>? children})
+      : super(
+          AddEventsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddEventsRoute';
+
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.AddPost]
+class AddPostRoute extends _i14.PageRouteInfo<void> {
+  const AddPostRoute({List<_i14.PageRouteInfo>? children})
+      : super(
+          AddPostRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddPostRoute';
+
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.AddTrophies]
+class AddTrophiesRoute extends _i14.PageRouteInfo<void> {
+  const AddTrophiesRoute({List<_i14.PageRouteInfo>? children})
+      : super(
+          AddTrophiesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddTrophiesRoute';
+
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i4.AdminSection]
+class AdminSectionRoute extends _i14.PageRouteInfo<void> {
+  const AdminSectionRoute({List<_i14.PageRouteInfo>? children})
+      : super(
+          AdminSectionRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AdminSectionRoute';
+
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i5.Auth]
+class AuthRoute extends _i14.PageRouteInfo<void> {
+  const AuthRoute({List<_i14.PageRouteInfo>? children})
       : super(
           AuthRoute.name,
           initialChildren: children,
@@ -137,13 +224,13 @@ class AuthRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'AuthRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.ChooseInterests]
-class ChooseInterestsRoute extends _i10.PageRouteInfo<void> {
-  const ChooseInterestsRoute({List<_i10.PageRouteInfo>? children})
+/// [_i6.ChooseInterests]
+class ChooseInterestsRoute extends _i14.PageRouteInfo<void> {
+  const ChooseInterestsRoute({List<_i14.PageRouteInfo>? children})
       : super(
           ChooseInterestsRoute.name,
           initialChildren: children,
@@ -151,13 +238,13 @@ class ChooseInterestsRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'ChooseInterestsRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i3.Community]
-class CommunityRoute extends _i10.PageRouteInfo<void> {
-  const CommunityRoute({List<_i10.PageRouteInfo>? children})
+/// [_i7.Community]
+class CommunityRoute extends _i14.PageRouteInfo<void> {
+  const CommunityRoute({List<_i14.PageRouteInfo>? children})
       : super(
           CommunityRoute.name,
           initialChildren: children,
@@ -165,13 +252,13 @@ class CommunityRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'CommunityRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i4.Dashboard]
-class DashboardRoute extends _i10.PageRouteInfo<void> {
-  const DashboardRoute({List<_i10.PageRouteInfo>? children})
+/// [_i8.Dashboard]
+class DashboardRoute extends _i14.PageRouteInfo<void> {
+  const DashboardRoute({List<_i14.PageRouteInfo>? children})
       : super(
           DashboardRoute.name,
           initialChildren: children,
@@ -179,13 +266,13 @@ class DashboardRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'DashboardRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i5.Events]
-class EventsRoute extends _i10.PageRouteInfo<void> {
-  const EventsRoute({List<_i10.PageRouteInfo>? children})
+/// [_i9.Events]
+class EventsRoute extends _i14.PageRouteInfo<void> {
+  const EventsRoute({List<_i14.PageRouteInfo>? children})
       : super(
           EventsRoute.name,
           initialChildren: children,
@@ -193,13 +280,13 @@ class EventsRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'EventsRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.Home]
-class HomeRoute extends _i10.PageRouteInfo<void> {
-  const HomeRoute({List<_i10.PageRouteInfo>? children})
+/// [_i10.Home]
+class HomeRoute extends _i14.PageRouteInfo<void> {
+  const HomeRoute({List<_i14.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -207,13 +294,13 @@ class HomeRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.HomeDetailsEvents]
-class HomeDetailsEventsRoute extends _i10.PageRouteInfo<void> {
-  const HomeDetailsEventsRoute({List<_i10.PageRouteInfo>? children})
+/// [_i10.HomeDetailsEvents]
+class HomeDetailsEventsRoute extends _i14.PageRouteInfo<void> {
+  const HomeDetailsEventsRoute({List<_i14.PageRouteInfo>? children})
       : super(
           HomeDetailsEventsRoute.name,
           initialChildren: children,
@@ -221,13 +308,13 @@ class HomeDetailsEventsRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'HomeDetailsEventsRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.HomeDetailsGiveaway]
-class HomeDetailsGiveawayRoute extends _i10.PageRouteInfo<void> {
-  const HomeDetailsGiveawayRoute({List<_i10.PageRouteInfo>? children})
+/// [_i10.HomeDetailsGiveaway]
+class HomeDetailsGiveawayRoute extends _i14.PageRouteInfo<void> {
+  const HomeDetailsGiveawayRoute({List<_i14.PageRouteInfo>? children})
       : super(
           HomeDetailsGiveawayRoute.name,
           initialChildren: children,
@@ -235,13 +322,13 @@ class HomeDetailsGiveawayRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'HomeDetailsGiveawayRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i6.HomeDetailsScholarship]
-class HomeDetailsScholarshipRoute extends _i10.PageRouteInfo<void> {
-  const HomeDetailsScholarshipRoute({List<_i10.PageRouteInfo>? children})
+/// [_i10.HomeDetailsScholarship]
+class HomeDetailsScholarshipRoute extends _i14.PageRouteInfo<void> {
+  const HomeDetailsScholarshipRoute({List<_i14.PageRouteInfo>? children})
       : super(
           HomeDetailsScholarshipRoute.name,
           initialChildren: children,
@@ -249,13 +336,13 @@ class HomeDetailsScholarshipRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'HomeDetailsScholarshipRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i7.Onboard]
-class OnboardRoute extends _i10.PageRouteInfo<void> {
-  const OnboardRoute({List<_i10.PageRouteInfo>? children})
+/// [_i11.Onboard]
+class OnboardRoute extends _i14.PageRouteInfo<void> {
+  const OnboardRoute({List<_i14.PageRouteInfo>? children})
       : super(
           OnboardRoute.name,
           initialChildren: children,
@@ -263,18 +350,18 @@ class OnboardRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'OnboardRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.OtpVerification]
+/// [_i6.OtpVerification]
 class OtpVerificationRoute
-    extends _i10.PageRouteInfo<OtpVerificationRouteArgs> {
+    extends _i14.PageRouteInfo<OtpVerificationRouteArgs> {
   OtpVerificationRoute({
-    _i11.Key? key,
+    _i15.Key? key,
     required String verificationId,
     required String mobileNumber,
-    List<_i10.PageRouteInfo>? children,
+    List<_i14.PageRouteInfo>? children,
   }) : super(
           OtpVerificationRoute.name,
           args: OtpVerificationRouteArgs(
@@ -287,8 +374,8 @@ class OtpVerificationRoute
 
   static const String name = 'OtpVerificationRoute';
 
-  static const _i10.PageInfo<OtpVerificationRouteArgs> page =
-      _i10.PageInfo<OtpVerificationRouteArgs>(name);
+  static const _i14.PageInfo<OtpVerificationRouteArgs> page =
+      _i14.PageInfo<OtpVerificationRouteArgs>(name);
 }
 
 class OtpVerificationRouteArgs {
@@ -298,7 +385,7 @@ class OtpVerificationRouteArgs {
     required this.mobileNumber,
   });
 
-  final _i11.Key? key;
+  final _i15.Key? key;
 
   final String verificationId;
 
@@ -311,9 +398,9 @@ class OtpVerificationRouteArgs {
 }
 
 /// generated route for
-/// [_i8.Profile]
-class ProfileRoute extends _i10.PageRouteInfo<void> {
-  const ProfileRoute({List<_i10.PageRouteInfo>? children})
+/// [_i12.Profile]
+class ProfileRoute extends _i14.PageRouteInfo<void> {
+  const ProfileRoute({List<_i14.PageRouteInfo>? children})
       : super(
           ProfileRoute.name,
           initialChildren: children,
@@ -321,13 +408,13 @@ class ProfileRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'ProfileRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i9.Splash]
-class SplashRoute extends _i10.PageRouteInfo<void> {
-  const SplashRoute({List<_i10.PageRouteInfo>? children})
+/// [_i13.Splash]
+class SplashRoute extends _i14.PageRouteInfo<void> {
+  const SplashRoute({List<_i14.PageRouteInfo>? children})
       : super(
           SplashRoute.name,
           initialChildren: children,
@@ -335,13 +422,13 @@ class SplashRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.UserDetails]
-class UserDetailsRoute extends _i10.PageRouteInfo<void> {
-  const UserDetailsRoute({List<_i10.PageRouteInfo>? children})
+/// [_i6.UserDetails]
+class UserDetailsRoute extends _i14.PageRouteInfo<void> {
+  const UserDetailsRoute({List<_i14.PageRouteInfo>? children})
       : super(
           UserDetailsRoute.name,
           initialChildren: children,
@@ -349,5 +436,5 @@ class UserDetailsRoute extends _i10.PageRouteInfo<void> {
 
   static const String name = 'UserDetailsRoute';
 
-  static const _i10.PageInfo<void> page = _i10.PageInfo<void>(name);
+  static const _i14.PageInfo<void> page = _i14.PageInfo<void>(name);
 }

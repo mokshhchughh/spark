@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
     homeViewModel.pageController = PageController(initialPage: 0);
     homeViewModel.startAutoScroll();
     super.initState();
+    homeViewModel.getPosts();
   }
 
   @override
@@ -57,178 +58,219 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: SafeArea(
-          child: ListView(
-            children: [
-              AppSizes.verticalSpace,
-              const SearchTextField(
-                hintText: 'Bangalore, India',
-                fillColor: AppColors.white,
-              ).pSymmetric(h: 16),
-              AppSizes.verticalSpace,
-              SizedBox(
-                height: 153,
-                child: PageView(
-                  controller: homeViewModel.pageController,
-                  children: List.generate(
-                    3,
-                    (index) {
-                      return GestureDetector(
-                        onTap: () {
-                          index == 0
-                              ? AutoRouter.of(context)
-                                  .push(const HomeDetailsGiveawayRoute())
-                              : index == 1
-                                  ? AutoRouter.of(context)
-                                      .push(const HomeDetailsScholarshipRoute())
-                                  : AutoRouter.of(context)
-                                      .push(const HomeDetailsEventsRoute());
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 16),
-                          padding: const EdgeInsets.all(16),
-                          height: 120,
-                          decoration: BoxDecoration(
-                            color: const Color(0xffDFB6FF),
-                            borderRadius: BorderRadius.circular(42),
-                          ),
-                          child: TitleLarge(
-                            title: index == 0
-                                ? 'Giveaways'
+          child: RefreshIndicator(
+            onRefresh: () async {
+              homeViewModel.getPosts();
+            },
+            child: ListView(
+              children: [
+                AppSizes.verticalSpace,
+                const SearchTextField(
+                  hintText: 'Bangalore, India',
+                  fillColor: AppColors.white,
+                ).pSymmetric(h: 16),
+                AppSizes.verticalSpace,
+                SizedBox(
+                  height: 153,
+                  child: PageView(
+                    controller: homeViewModel.pageController,
+                    children: List.generate(
+                      3,
+                      (index) {
+                        return GestureDetector(
+                          onTap: () {
+                            index == 0
+                                ? AutoRouter.of(context)
+                                    .push(const HomeDetailsGiveawayRoute())
                                 : index == 1
-                                    ? 'Scholarships'
-                                    : 'Today\'s Events',
-                            fontWeight: FontWeight.bold,
-                            color: const Color(0xff8F00FF),
+                                    ? AutoRouter.of(context).push(
+                                        const HomeDetailsScholarshipRoute())
+                                    : AutoRouter.of(context)
+                                        .push(const HomeDetailsEventsRoute());
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 16),
+                            padding: const EdgeInsets.all(16),
+                            height: 120,
+                            decoration: BoxDecoration(
+                              color: const Color(0xffDFB6FF),
+                              borderRadius: BorderRadius.circular(42),
+                            ),
+                            child: TitleLarge(
+                              title: index == 0
+                                  ? 'Giveaways'
+                                  : index == 1
+                                      ? 'Scholarships'
+                                      : 'Today\'s Events',
+                              fontWeight: FontWeight.bold,
+                              color: const Color(0xff8F00FF),
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
-              AppSizes.gap12Space,
-              Center(
-                child: SmoothPageIndicator(
-                  controller: homeViewModel.pageController, // PageController
-                  count: 3,
-                  effect: const WormEffect(
-                    activeDotColor: AppColors.primary,
-                    dotColor: AppColors.grey,
-                    dotHeight: 10.0,
-                    dotWidth: 10.0,
-                  ), // your preferred effect
-                  onDotClicked: (index) {},
-                ),
-              ),
-              AppSizes.verticalSpace,
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: AppColors.white,
-                  borderRadius: BorderRadius.circular(38),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ListView.separated(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 3,
-                      shrinkWrap: true,
-                      separatorBuilder: (_, __) => const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 20),
-                        child: Divider(
-                          color: AppColors.alphaBlack20,
-                        ),
-                      ),
-                      itemBuilder: (context, index) {
-                        return const PostsCard();
+                        );
                       },
                     ),
-                    AppSizes.gap24Space,
-                    const Divider(
-                      color: AppColors.alphaBlack20,
-                    ),
-                    AppSizes.gap12Space,
-                    const TitleLarge(
-                      title: 'Yayy! keep growing',
-                      fontWeight: FontWeight.bold,
-                    ),
-                    AppSizes.gap12Space,
-                    Container(
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: const Color(0xfff4f4f4),
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              color: AppColors.white,
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            child: Column(
-                              children: [
-                                Image.asset(
-                                  AppIcons.iconsHistory,
-                                  color: AppColors.primary,
-                                  scale: 2,
+                  ),
+                ),
+                AppSizes.gap12Space,
+                Center(
+                  child: SmoothPageIndicator(
+                    controller: homeViewModel.pageController, // PageController
+                    count: 3,
+                    effect: const WormEffect(
+                      activeDotColor: AppColors.primary,
+                      dotColor: AppColors.grey,
+                      dotHeight: 10.0,
+                      dotWidth: 10.0,
+                    ), // your preferred effect
+                    onDotClicked: (index) {},
+                  ),
+                ),
+                AppSizes.verticalSpace,
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: BorderRadius.circular(38),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      BlocBuilder<VelocityBloc<List<Post>>,
+                          VelocityState<List<Post>>>(
+                        bloc: homeViewModel.postssBloc,
+                        builder: (context, state) {
+                          if (state is VelocityInitialState) {
+                            return ListView.separated(
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: 3,
+                              shrinkWrap: true,
+                              separatorBuilder: (_, __) => const Padding(
+                                padding: EdgeInsets.symmetric(vertical: 20),
+                                child: Divider(
+                                  color: AppColors.alphaBlack20,
                                 ),
+                              ),
+                              itemBuilder: (context, index) {
+                                return VxShimmer(
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                        color: AppColors.alphaBlack20,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: const SizedBox(
+                                      height: 150,
+                                      width: 100,
+                                    ),
+                                  ),
+                                );
+                              },
+                            );
+                          }
+                          return ListView.separated(
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: state.data.length,
+                            shrinkWrap: true,
+                            separatorBuilder: (_, __) => const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 20),
+                              child: Divider(
+                                color: AppColors.alphaBlack20,
+                              ),
+                            ),
+                            itemBuilder: (context, index) {
+                              return PostsCard(
+                                homeViewModel: homeViewModel,
+                                post: state.data[index],
+                              );
+                            },
+                          );
+                        },
+                      ),
+                      AppSizes.gap24Space,
+                      const Divider(
+                        color: AppColors.alphaBlack20,
+                      ),
+                      AppSizes.gap12Space,
+                      const TitleLarge(
+                        title: 'Yayy! keep growing',
+                        fontWeight: FontWeight.bold,
+                      ),
+                      AppSizes.gap12Space,
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: const Color(0xfff4f4f4),
+                          borderRadius: BorderRadius.circular(24),
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: AppColors.white,
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    AppIcons.iconsHistory,
+                                    color: AppColors.primary,
+                                    scale: 2,
+                                  ),
+                                  const TitleMedium(
+                                    title: '7 Days',
+                                    fontWeight: FontWeight.bold,
+                                  )
+                                ],
+                              ),
+                            ),
+                            AppSizes.gapH10Space,
+                            Column(
+                              children: [
                                 const TitleMedium(
-                                  title: '7 Days',
+                                  title: '21 Profile views last 7 days',
                                   fontWeight: FontWeight.bold,
+                                ),
+                                AppSizes.gap12Space,
+                                Stack(
+                                  children: [
+                                    ...List.generate(4, (index) {
+                                      return Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: index == 0
+                                                ? 12
+                                                : index == 1
+                                                    ? 36
+                                                    : 60),
+                                        child: CircleAvatar(
+                                          foregroundImage: NetworkImage(
+                                            'https://i.pravatar.cc/50?u=$index',
+                                          ),
+                                        ),
+                                      );
+                                    })
+                                  ],
                                 )
                               ],
                             ),
-                          ),
-                          AppSizes.gapH10Space,
-                          Column(
-                            children: [
-                              const TitleMedium(
-                                title: '21 Profile views last 7 days',
-                                fontWeight: FontWeight.bold,
-                              ),
-                              AppSizes.gap12Space,
-                              Stack(
-                                children: [
-                                  ...List.generate(4, (index) {
-                                    return Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: index == 0
-                                              ? 12
-                                              : index == 1
-                                                  ? 36
-                                                  : 60),
-                                      child: CircleAvatar(
-                                        foregroundImage: NetworkImage(
-                                          'https://i.pravatar.cc/50?u=$index',
-                                        ),
-                                      ),
-                                    );
-                                  })
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    AppSizes.gap12Space,
-                    PrimaryButton(
-                      title: 'View more',
-                      onTap: () {},
-                    ),
-                    AppSizes.gap24Space,
-                    const Divider(
-                      color: AppColors.alphaBlack20,
-                    ),
-                    AppSizes.gap12Space,
-                    const SecondPostsCard(),
-                  ],
+                      AppSizes.gap12Space,
+                      PrimaryButton(
+                        title: 'View more',
+                        onTap: () {},
+                      ),
+                      AppSizes.gap24Space,
+                      const Divider(
+                        color: AppColors.alphaBlack20,
+                      ),
+                      AppSizes.gap12Space,
+                      const SecondPostsCard(),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

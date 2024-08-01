@@ -33,12 +33,13 @@ class EventsModel {
       name: data['eventsName'],
       description: data['eventsDescription'],
       host: data['eventsHost'],
-      eventsImage: data['eventsImage'],
+      eventsImage: data['eventsImage'] ??
+          'https://images.unsplash.com/photo-1478147427282-58a87a120781?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZXZlbnRzfGVufDB8fDB8fHww',
       eventsCategory: List<String>.from(data['eventsCategory']),
       date: (data['eventsDate'] as Timestamp).toDate(),
       locationName: data['location']['name'],
-      latitude: double.parse(data['location']['latitude']),
-      longitude: double.parse(data['location']['longitude']),
+      latitude: double.parse(data['location']['latitude'] ?? "0.0"),
+      longitude: double.parse(data['location']['longitude'] ?? "0.0"),
     );
   }
 

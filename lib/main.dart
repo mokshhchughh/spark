@@ -8,12 +8,14 @@ import 'core/constants/app_constants.dart';
 import 'core/themes/app_themes.dart';
 import 'presentation/auth/auth_bloc.dart';
 import 'presentation/routes/router_imports.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  await initializeDateFormatting();
   runApp(MyApp());
 }
 

@@ -17,7 +17,8 @@ class SearchTextField extends StatelessWidget {
       this.fillColor,
       this.onChanged,
       this.onEditingComplete,
-      this.onFieldSubmitted});
+      this.onFieldSubmitted,
+      this.autoFocus = false});
 
   final TextEditingController? controller;
   final String? hintText;
@@ -34,6 +35,7 @@ class SearchTextField extends StatelessWidget {
   final Function(String)? onChanged;
   final Function()? onEditingComplete;
   final Function(String)? onFieldSubmitted;
+  final bool autoFocus;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +48,7 @@ class SearchTextField extends StatelessWidget {
       onChanged: onChanged,
       onEditingComplete: onEditingComplete,
       onFieldSubmitted: onFieldSubmitted,
+      autofocus: autoFocus,
       onTapOutside: onTapOutSide ??
           (event) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(

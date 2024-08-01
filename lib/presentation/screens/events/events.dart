@@ -82,9 +82,11 @@ class _EventsState extends State<Events> {
                   separatorBuilder: (_, __) => AppSizes.verticalSpace,
                   itemBuilder: (context, index) {
                     var event = state.data[index];
-                    return EventsCard(
-                      eventsModel: event,
-                    );
+                    return state.data.isNotEmpty
+                        ? EventsCard(
+                            eventsModel: event,
+                          )
+                        : const TitleMedium(title: 'No Events Found');
                   },
                 ),
               );

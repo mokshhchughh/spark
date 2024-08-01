@@ -65,5 +65,21 @@ class AppRouter extends $AppRouter {
           page: HomeDetailsScholarshipRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
+        CustomRoute(
+          page: AdminSectionRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: AddPostRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+        ),
+        CustomRoute(
+          page: AddEventsRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+        ),
+        CustomRoute(
+          page: AddTrophiesRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+        ),
       ];
 }
