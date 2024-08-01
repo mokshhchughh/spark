@@ -135,7 +135,15 @@ class _PostsCardState extends State<PostsCard> {
               ),
               const Spacer(),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    useSafeArea: true,
+                    enableDrag: false,
+                    isScrollControlled: true,
+                    builder: (context) => const CommentsSection(),
+                  );
+                },
                 icon: Image.asset(
                   AppIcons.iconsChatRoundDots,
                   height: 20,
@@ -147,7 +155,9 @@ class _PostsCardState extends State<PostsCard> {
               ),
               const Spacer(),
               TextButton.icon(
-                onPressed: () {},
+                onPressed: () async {
+                  await Share.share(widget.post.postDescription);
+                },
                 icon: Image.asset(
                   AppIcons.iconsForward,
                   height: 20,

@@ -216,7 +216,6 @@ class _ProfileState extends State<Profile> {
                                 title: 'Leaderboard',
                                 fontWeight: FontWeight.bold,
                               ),
-                              AppSizes.verticalSpace,
                               ListView.separated(
                                 itemCount: 10,
                                 shrinkWrap: true,

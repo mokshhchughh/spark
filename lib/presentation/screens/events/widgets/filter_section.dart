@@ -10,15 +10,56 @@ class FiltersSection extends StatefulWidget {
 }
 
 class _FiltersSectionState extends State<FiltersSection> {
+  SortOrder _sortOrder = SortOrder.none;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         AppSizes.verticalSpace,
-        const ExpansionTile(
-          shape: RoundedRectangleBorder(),
-          title: TitleMedium(title: 'A-Z'),
-          children: [],
+        ExpansionTile(
+          shape: const RoundedRectangleBorder(),
+          title: const TitleMedium(title: 'A-Z'),
+          children: [
+            ListTile(
+              title: const Text('None'),
+              leading: Radio<SortOrder>(
+                value: SortOrder.none,
+                groupValue: _sortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    _sortOrder = value!;
+                    widget.eventsViewModel.getEvents(sortOrder: _sortOrder);
+                  });
+                },
+              ),
+            ),
+            ListTile(
+              title: const Text('Ascending'),
+              leading: Radio<SortOrder>(
+                value: SortOrder.ascending,
+                groupValue: _sortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    _sortOrder = value!;
+                    widget.eventsViewModel.getEvents(sortOrder: _sortOrder);
+                  });
+                },
+              ),
+            ),
+            ListTile(
+              title: const Text('Descending'),
+              leading: Radio<SortOrder>(
+                value: SortOrder.descending,
+                groupValue: _sortOrder,
+                onChanged: (SortOrder? value) {
+                  setState(() {
+                    _sortOrder = value!;
+                    widget.eventsViewModel.getEvents(sortOrder: _sortOrder);
+                  });
+                },
+              ),
+            ),
+          ],
         ),
         const Divider(),
         ExpansionTile(

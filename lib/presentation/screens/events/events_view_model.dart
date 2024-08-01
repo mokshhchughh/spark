@@ -35,7 +35,10 @@ class EventsViewModel {
   final VelocityBloc<List<String>> selectedChoicesBloc =
       VelocityBloc<List<String>>([]);
 
-  void getEvents({String? query, List<String>? categories}) async {
+  void getEvents(
+      {String? query,
+      List<String>? categories,
+      SortOrder sortOrder = SortOrder.none}) async {
     List<String> interests = await getUserInterests(_auth.currentUser!.uid);
 
     Query<Map<String, dynamic>> eventsQuery = _firestore.collection('events');
@@ -80,6 +83,13 @@ class EventsViewModel {
           events.add(EventsModel.fromFirestore(doc.data(), doc.id));
         }
       }
+    }
+
+    // Sort events based on the sortOrder
+    if (sortOrder == SortOrder.ascending) {
+      events.sort((a, b) => a.name.compareTo(b.name));
+    } else if (sortOrder == SortOrder.descending) {
+      events.sort((a, b) => b.name.compareTo(a.name));
     }
 
     eventsBloc.onUpdateData(events);

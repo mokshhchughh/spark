@@ -6,6 +6,7 @@ import 'package:velocity_bloc/velocity_bloc.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_icons.dart';
 import '../../../../core/constants/app_sizes.dart';
+import '../../../components/sort_enum.dart';
 import '../../../components/typography/typography_imports.dart';
 import '../events_imports.dart';
 import '../events_model.dart';

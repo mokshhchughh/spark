@@ -11,6 +11,7 @@ import 'package:velocity_x/velocity_x.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_icons.dart';
 import '../../../core/constants/app_sizes.dart';
+import '../../components/sort_enum.dart';
 import '../../components/text_fields/text_fields_imports.dart';
 import 'events_model.dart';
 import 'widgets/widget_imports.dart';
