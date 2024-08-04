@@ -64,4 +64,13 @@ class HomeViewModel {
       });
     }
   }
+
+  Future<void> addComment(Post post, String comment) async {
+    post.comments.add(comment);
+    post.postComments++;
+    await _firestore.collection('posts').doc(post.id).update({
+      'comments': post.comments,
+      'postComments': post.postComments,
+    });
+  }
 }

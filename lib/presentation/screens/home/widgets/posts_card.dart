@@ -13,10 +13,12 @@ class PostsCard extends StatefulWidget {
 class _PostsCardState extends State<PostsCard> {
   bool isLiked = false;
   int likesCount = 0;
+  int commentsCount = 0;
 
   @override
   void initState() {
     likesCount = widget.post.postLikes;
+    commentsCount = widget.post.postComments;
     super.initState();
   }
 
@@ -96,7 +98,7 @@ class _PostsCardState extends State<PostsCard> {
             // ),
             const Spacer(),
             TitleSmall(
-              title: '${widget.post.postComments} Comments',
+              title: '${widget.post.postComments}  Comments',
             ),
           ],
         ),
@@ -135,14 +137,22 @@ class _PostsCardState extends State<PostsCard> {
               ),
               const Spacer(),
               TextButton.icon(
-                onPressed: () {
-                  showModalBottomSheet(
+                onPressed: () async {
+                  var data = await showModalBottomSheet(
                     context: context,
                     useSafeArea: true,
                     enableDrag: false,
                     isScrollControlled: true,
-                    builder: (context) => const CommentsSection(),
+                    builder: (context) => CommentsSection(
+                      homeViewModel: widget.homeViewModel,
+                      post: widget.post,
+                    ),
                   );
+                  if (data != null) {
+                    setState(() {
+                      commentsCount = data;
+                    });
+                  }
                 },
                 icon: Image.asset(
                   AppIcons.iconsChatRoundDots,

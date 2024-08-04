@@ -41,6 +41,7 @@ class SearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       readOnly: readOnly,
+      cursorColor: AppColors.primary,
       onTap: onTap,
       controller: controller,
       maxLines: maxLines ?? 1,

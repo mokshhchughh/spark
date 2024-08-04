@@ -25,12 +25,15 @@ class AddEventsViewModel {
   }
 
   void addNewEvent(context) async {
+    DateFormat dateFormat = DateFormat("MMMM dd, yyyy 'at' hh:mm:ss a");
+    DateTime dateTime = dateFormat.parse(dateController.text);
+    Timestamp timestamp = Timestamp.fromDate(dateTime);
     isLoadingBloc.onUpdateData(true);
     await _db.collection('events').doc(_uuid).set({
       'id': _uuid,
       'eventsName': titleController.text,
       'eventsHost': hostController.text,
-      'eventsDate': dateController.text,
+      'eventsDate': timestamp,
       'location': {'name': locationController.text},
       'eventsDescription': descriptionController.text,
       'eventsCategory': selectedChoicesBloc.state.data,

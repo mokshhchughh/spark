@@ -129,7 +129,8 @@ class _ProfileState extends State<Profile> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                padding: const EdgeInsets.all(16),
+                                padding: const EdgeInsets.only(
+                                    top: 29, bottom: 19, left: 31, right: 34),
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     color: AppColors.grey300,
@@ -139,16 +140,20 @@ class _ProfileState extends State<Profile> {
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Column(
                                       children: [
                                         Image.asset(
                                           AppIcons.iconsHandshake,
-                                          height: 40,
-                                          width: 40,
+                                          height: 59,
+                                          width: 61,
                                         ),
                                         AppSizes.gap8Space,
-                                        const TitleSmall(title: 'Connections'),
+                                        const TitleSmall(
+                                          title: 'Connections',
+                                          color: Color(0xff8B8B8B),
+                                        ),
                                         TitleLarge(
                                           title: state.data!['connections']
                                               .toString(),
@@ -157,7 +162,7 @@ class _ProfileState extends State<Profile> {
                                       ],
                                     ),
                                     const SizedBox(
-                                      height: 100,
+                                      height: 64,
                                       width: 1,
                                       child: Divider(
                                         height: 100,
@@ -169,12 +174,13 @@ class _ProfileState extends State<Profile> {
                                       children: [
                                         Image.asset(
                                           AppIcons.iconsTrophy,
-                                          height: 40,
-                                          width: 40,
+                                          height: 61,
+                                          width: 60,
                                         ),
                                         AppSizes.gap8Space,
                                         const TitleSmall(
                                           title: 'Trophies',
+                                          color: Color(0xff8B8B8B),
                                         ),
                                         TitleLarge(
                                           title: state.data!['trophies']
@@ -184,7 +190,7 @@ class _ProfileState extends State<Profile> {
                                       ],
                                     ),
                                     const SizedBox(
-                                      height: 100,
+                                      height: 64,
                                       width: 1,
                                       child: Divider(
                                         height: 100,
@@ -196,11 +202,14 @@ class _ProfileState extends State<Profile> {
                                       children: [
                                         Image.asset(
                                           AppIcons.iconsPlanner,
-                                          height: 40,
-                                          width: 40,
+                                          height: 50,
+                                          width: 51,
                                         ),
-                                        AppSizes.gap8Space,
-                                        const TitleSmall(title: 'Events'),
+                                        const SizedBox(height: 18),
+                                        const TitleSmall(
+                                          title: 'Events',
+                                          color: Color(0xff8B8B8B),
+                                        ),
                                         TitleLarge(
                                           title:
                                               state.data!['events'].toString(),

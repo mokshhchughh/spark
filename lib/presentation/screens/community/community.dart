@@ -93,7 +93,7 @@ class _CommunityState extends State<Community> {
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
-                          'Peers',
+                          'Friends',
                           style: TextStyle(fontSize: 14),
                           textAlign: TextAlign.center,
                         ),
@@ -135,14 +135,20 @@ class _CommunityState extends State<Community> {
                             ),
                             children: [
                               ListView.builder(
+                                physics: const NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemCount: 4,
                                 itemBuilder: (context, index) {
                                   return ListTile(
-                                    leading: const CircleAvatar(
+                                    leading: CircleAvatar(
                                       radius: 24,
-                                      backgroundImage:
-                                          AssetImage(AppIcons.iconsNormal),
+                                      backgroundColor:
+                                          AppColors.primary.withOpacity(0.1),
+                                      child: Image.asset(
+                                        scale: 2,
+                                        AppIcons.iconsUsersGroupRoundedFilled,
+                                        color: AppColors.primary,
+                                      ),
                                     ),
                                     title:
                                         const TitleMedium(title: "Group Name"),
@@ -191,44 +197,74 @@ class _CommunityState extends State<Community> {
                             ],
                           ),
                           AppSizes.verticalSpace,
-                          ExpansionTile(
-                            initiallyExpanded: true,
-                            backgroundColor: AppColors.white,
-                            collapsedBackgroundColor: AppColors.white,
-                            shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                  color: AppColors.grey300,
-                                ),
-                                borderRadius: BorderRadius.circular(18)),
-                            collapsedShape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                  color: AppColors.alphaBlack40,
-                                ),
-                                borderRadius: BorderRadius.circular(18)),
-                            title: const TitleMedium(
-                              title: 'My Groups',
-                              fontWeight: FontWeight.bold,
-                            ),
-                            children: [
-                              ListView.builder(
-                                shrinkWrap: true,
-                                itemCount: 4,
-                                itemBuilder: (context, index) {
-                                  return const ListTile(
-                                    leading: CircleAvatar(
-                                      backgroundImage:
-                                          AssetImage(AppIcons.iconsNormal),
-                                    ),
-                                    title: TitleMedium(title: "Group Name"),
-                                    subtitle: TitleSmall(
-                                      title: 'Location',
-                                      color: AppColors.alphaBlack50,
-                                    ),
-                                  );
-                                },
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: AppColors.grey300,
                               ),
-                            ],
+                              borderRadius: BorderRadius.circular(18),
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const TitleMedium(
+                                  title: 'My Groups',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  shrinkWrap: true,
+                                  itemCount: 4,
+                                  itemBuilder: (context, index) {
+                                    return ListTile(
+                                      contentPadding: EdgeInsets.zero,
+                                      leading: CircleAvatar(
+                                        radius: 24,
+                                        backgroundColor:
+                                            AppColors.primary.withOpacity(0.1),
+                                        child: Image.asset(
+                                          scale: 2,
+                                          AppIcons.iconsUsersGroupRoundedFilled,
+                                          color: AppColors.primary,
+                                        ),
+                                      ),
+                                      title: const TitleMedium(
+                                          title: "Group Name"),
+                                      subtitle: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          const TitleSmall(
+                                            title:
+                                                'Dancing • Singing • Sketching',
+                                            color: AppColors.alphaBlack80,
+                                          ),
+                                          AppSizes.gap2Space,
+                                          Row(
+                                            children: [
+                                              Image.asset(
+                                                scale: 3,
+                                                AppIcons
+                                                    .iconsUsersGroupRoundedFilled,
+                                                color: AppColors.alphaBlack50,
+                                              ),
+                                              AppSizes.gapH4Space,
+                                              const TitleSmall(
+                                                title: '16+ peers',
+                                                color: AppColors.alphaBlack50,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
+                          AppSizes.gap24Space,
                         ],
                       ),
                       ListView(
@@ -248,7 +284,7 @@ class _CommunityState extends State<Community> {
                                 ),
                                 borderRadius: BorderRadius.circular(20)),
                             title: const TitleMedium(
-                              title: 'Peers',
+                              title: 'Friends',
                               fontWeight: FontWeight.bold,
                             ),
                             children: [
@@ -258,7 +294,7 @@ class _CommunityState extends State<Community> {
                                 itemBuilder: (context, index) {
                                   return ListTile(
                                     leading: CircleAvatar(
-                                      radius: 20,
+                                      radius: 24,
                                       backgroundColor:
                                           AppColors.primary.withOpacity(0.1),
                                       child: Image.asset(
@@ -275,9 +311,12 @@ class _CommunityState extends State<Community> {
                                         overflow: TextOverflow.ellipsis,
                                       ),
                                     ),
-                                    subtitle: const TitleSmall(
-                                      title: 'Moksh: icons for profile page',
-                                      color: AppColors.darkTextColor,
+                                    subtitle: const SizedBox(
+                                      width: 200,
+                                      child: TitleSmall(
+                                        title: 'Moksh: icons for profile page',
+                                        color: AppColors.darkTextColor,
+                                      ),
                                     ),
                                     trailing: const TitleSmall(
                                       title: '22:51',

@@ -9,7 +9,8 @@ class TitleMedium extends StatelessWidget {
       this.overflow,
       this.textAlign = TextAlign.start,
       this.decoration,
-      this.maxLines});
+      this.maxLines,
+      this.fontSize});
 
   final String title;
   final Color? color;
@@ -18,6 +19,7 @@ class TitleMedium extends StatelessWidget {
   final TextAlign textAlign;
   final TextDecoration? decoration;
   final int? maxLines;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class TitleMedium extends StatelessWidget {
       maxLines: maxLines,
       textAlign: textAlign,
       style: TextStyle(
-        fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
+        fontSize: fontSize ?? Theme.of(context).textTheme.titleMedium!.fontSize,
         color: color ?? Theme.of(context).textTheme.titleMedium!.color,
         fontWeight:
             fontWeight ?? Theme.of(context).textTheme.titleMedium!.fontWeight,

@@ -12,6 +12,7 @@ class AddPostViewModel {
 
   void clearFields() {
     postController.clear();
+    postAuthorController.clear();
     descController.clear();
   }
 

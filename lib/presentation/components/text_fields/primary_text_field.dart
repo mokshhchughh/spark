@@ -50,6 +50,7 @@ class PrimaryTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      cursorColor: AppColors.primary,
       autofocus: autofocus,
       readOnly: readOnly,
       focusNode: focusNode,

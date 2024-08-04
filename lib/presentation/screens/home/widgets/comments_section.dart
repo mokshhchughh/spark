@@ -1,7 +1,11 @@
 part of 'widget_imports.dart';
 
 class CommentsSection extends StatefulWidget {
-  const CommentsSection({super.key});
+  const CommentsSection(
+      {super.key, required this.homeViewModel, required this.post});
+
+  final HomeViewModel homeViewModel;
+  final Post post;
 
   @override
   State<CommentsSection> createState() => _CommentsSectionState();
@@ -10,9 +14,14 @@ class CommentsSection extends StatefulWidget {
 class _CommentsSectionState extends State<CommentsSection> {
   final TextEditingController _textEditingController = TextEditingController();
 
+  int commensCount = 0;
+
+  ProfileViewModel profileViewModel = ProfileViewModel();
+
   @override
   void dispose() {
     _textEditingController.dispose();
+    profileViewModel.getUserDetails();
     super.dispose();
   }
 
@@ -35,8 +44,8 @@ class _CommentsSectionState extends State<CommentsSection> {
                   child: Column(
                     children: [
                       AppSizes.gap12Space,
-                      const TitleMedium(
-                        title: "10 Comments",
+                      TitleMedium(
+                        title: "${widget.post.postComments} Comments",
                         fontWeight: FontWeight.bold,
                       ),
                       const Divider(
@@ -45,7 +54,7 @@ class _CommentsSectionState extends State<CommentsSection> {
                       AppSizes.gap12Space,
                       Expanded(
                         child: ListView.separated(
-                          itemCount: 2,
+                          itemCount: widget.post.comments.length,
                           physics: const BouncingScrollPhysics(),
                           padding: const EdgeInsets.only(
                               bottom: 60.0, left: 16, right: 16),
@@ -62,16 +71,31 @@ class _CommentsSectionState extends State<CommentsSection> {
                                       const AssetImage(AppIcons.iconsUser1),
                                 ),
                                 AppSizes.gapH10Space,
-                                const Expanded(
+                                Expanded(
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      LabelLarge(
-                                        title: 'ok',
-                                        fontWeight: FontWeight.w500,
+                                      BlocBuilder<VelocityBloc, VelocityState>(
+                                        bloc: profileViewModel.userDeatils,
+                                        builder: (context, state) {
+                                          if (state is VelocityInitialState) {
+                                            return const Center(
+                                              child: SizedBox.shrink(),
+                                            );
+                                          } else if (state
+                                              is VelocityUpdateState) {
+                                            return LabelLarge(
+                                              title: state.data?['name'] ?? '',
+                                              fontWeight: FontWeight.w500,
+                                            );
+                                          } else {
+                                            return const SizedBox.shrink();
+                                          }
+                                        },
                                       ),
-                                      LabelMedium(title: 'ko'),
+                                      LabelMedium(
+                                          title: widget.post.comments[index]),
                                     ],
                                   ),
                                 ),
@@ -100,8 +124,10 @@ class _CommentsSectionState extends State<CommentsSection> {
                     suffixIcon: IconButton(
                         onPressed: () {
                           VxToast.show(context, msg: 'Comments Added!');
+                          widget.homeViewModel.addComment(
+                              widget.post, _textEditingController.text);
                           _textEditingController.clear();
-                          Navigator.pop(context);
+                          Navigator.pop(context, commensCount++);
                         },
                         icon: const Icon(Icons.send)),
                   ),

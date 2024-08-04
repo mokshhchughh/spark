@@ -70,16 +70,16 @@ class EventsCard extends StatelessWidget {
                       title: eventsModel.name,
                       fontWeight: FontWeight.bold,
                     ),
-                    TitleMedium(
+                    TitleSmall(
                       title: eventsModel.formattedTime,
                       color: AppColors.darkTextColor,
                       fontWeight: FontWeight.w500,
                     ),
                   ],
                 ),
-                AppSizes.gap4Space,
+                AppSizes.gap8Space,
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Image.asset(
                       AppIcons.iconsMapPoint,
@@ -87,7 +87,8 @@ class EventsCard extends StatelessWidget {
                     ),
                     AppSizes.gapH8Space,
                     SizedBox(
-                      width: 0.5.sw,
+                      width:
+                          eventsModel.locationName.length > 17 ? 0.3.sw : null,
                       child: TitleSmall(
                         title: eventsModel.locationName,
                         color: AppColors.alphaBlack50,
@@ -96,7 +97,7 @@ class EventsCard extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    const Spacer(),
+                    const SizedBox(width: 10),
                     Image.asset(
                       AppIcons.iconsHost,
                       scale: 1.4,

@@ -103,14 +103,15 @@ class _FiltersSectionState extends State<FiltersSection> {
                 );
               },
             ),
+            AppSizes.gap24Space,
           ],
         ),
-        const Divider(),
-        const ExpansionTile(
-          shape: RoundedRectangleBorder(),
-          title: TitleMedium(title: 'Mode'),
-          children: [],
-        ),
+        // const Divider(),
+        // const ExpansionTile(
+        //   shape: RoundedRectangleBorder(),
+        //   title: TitleMedium(title: 'Mode'),
+        //   children: [],
+        // ),
       ],
     );
   }

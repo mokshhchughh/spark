@@ -54,6 +54,15 @@ class AdminSection extends StatelessWidget {
               ),
               trailing: const Icon(Icons.arrow_forward_ios),
             ),
+            ListTile(
+              onTap: () {
+                AutoRouter.of(context).push(const ReactionRoute());
+              },
+              leading: const TitleMedium(
+                title: 'Add Reactions',
+              ),
+              trailing: const Icon(Icons.arrow_forward_ios),
+            ),
           ],
         ),
       ),

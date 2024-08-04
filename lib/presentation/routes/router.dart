@@ -81,5 +81,9 @@ class AppRouter extends $AppRouter {
           page: AddTrophiesRoute.page,
           transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
         ),
+        CustomRoute(
+          page: ReactionRoute.page,
+          transitionsBuilder: TransitionsBuilders.slideLeftWithFade,
+        ),
       ];
 }
