@@ -4,7 +4,8 @@
   <p><b>Early career guidance for students who haven't entered the real world yet.</b></p>
 </div>
 
-<img src="assets/cover.png" alt="Spark Cover Art" width="100%">
+<img width="1536" height="1024" alt="cover" src="https://github.com/user-attachments/assets/ad251e75-3b56-47e3-8dda-dd9290bd8376" />
+
 
 ---
 
