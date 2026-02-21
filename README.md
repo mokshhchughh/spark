@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/spark_app_logo.png" width="120">
+  <img src="assets/icons/spark_app_logo.png" width="120">
   <h1>Spark</h1>
   <p><b>Early career guidance for students who haven't entered the real world yet.</b></p>
 </div>
